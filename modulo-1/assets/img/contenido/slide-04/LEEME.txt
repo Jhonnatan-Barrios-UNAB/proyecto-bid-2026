@@ -1,0 +1,7 @@
+Imágenes de la pantalla 4 (Bosque natural).
+
+1) Botón "Ver mapa" (ítem 1): coloque el mapa con el nombre mapa-bosque-natural.jpg
+   Original en el drive: BNB_2024_Landsat_C_2025-07-21
+
+2) Botón "Ver imagen" (ítem 3, deforestación): coloque la imagen con el nombre deforestacion.jpg
+   Imagen indicada en ppt-contenidos: https://www.flickr.com/photos/minambientecolombia/53425157756/in/album-72177720313672029
