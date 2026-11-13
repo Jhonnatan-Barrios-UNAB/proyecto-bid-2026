@@ -1,0 +1,107 @@
+GUION DE LOCUCIONES · Módulo 1 (proyecto BID)
+Todas las locuciones tienen por ahora el MISMO audio provisional. Reemplaza cada archivo por otro con el MISMO nombre.
+Los subtítulos (CC) se generan con el texto de este guion y se reparten según la duración del audio.
+
+slide-01/titulo.mp3  →  Módulo 1. Introducción a la compra y consumo responsable de productos forestales maderables.
+slide-02/titulo.mp3  →  Video inicial. ¡Bienvenido al módulo introductorio del curso de compra y consumo responsable de productos forestales maderables! En esta sección te acercarás al contexto del sector forestal colombiano, conocerás la estructura de la cadena forestal maderable en Colombia, así como algunos productos de madera y los usos que normalmente se le dan a la madera en Colombia. Finalmente podrás diferenciar la compra y el consumo responsable, y entenderás la importancia de tu elección de un producto forestal en la promoción de un mercado legal y sostenible de madera en el país. Toma atenta nota, ya que tendrás la oportunidad de probar tu avance con un cuestionario final. Disfruta y amplía tu conocimiento con el material de apoyo del módulo.
+slide-03/titulo.mp3  →  Tabla de contenido
+slide-04/titulo.mp3  →  Sector forestal colombiano. Bosque natural.
+slide-04/popup-e-1.mp3  →  Bosque natural en Colombia.
+slide-04/popup-e-2.mp3  →  Administración del bosque natural: el Sistema Nacional Ambiental, SINA.
+slide-04/popup-e-3.mp3  →  Deforestación en Colombia.
+slide-04/popup-mapa-bosque.mp3  →  Mapa de bosque natural de Colombia.
+slide-04/popup-imagen-deforestacion.mp3  →  Deforestación en Colombia.
+slide-05/titulo.mp3  →  Sector forestal colombiano. Cultivos forestales con fines comerciales.
+slide-05/popup-ver-mas-cultivos.mp3  →  Plantaciones forestales por departamento y región.
+slide-06/titulo.mp3  →  Cultivos forestales con fines comerciales. Zonificación para plantaciones forestales.
+slide-07/titulo.mp3  →  Cultivos forestales con fines comerciales. Entidad competente.
+slide-08/titulo.mp3  →  Cifras del sector forestal colombiano.
+slide-08/popup-cifras-1.mp3  →  Aporte de 3.5 billones de pesos al valor agregado (2024 pr). El subsector de Silvicultura y Extracción de Madera participa en un 2 % sobre el valor agregado del sector de Agricultura, ganadería, caza, silvicultura y pesca.
+slide-08/popup-cifras-2.mp3  →  La balanza comercial es deficitaria (2024). La balanza comercial del sector madera y muebles, Bambú y Corcho y sus manufacturas, presenta una disminución de 0,3 % en exportaciones, y un crecimiento del 21 % en importaciones para 2024, en comparación con 2023, lo que se considera como una balanza negativa.
+slide-08/popup-cifras-3.mp3  →  Los principales destinos de exportación son Estados Unidos (18,7 %), Panamá (16,3 %) y China (12,3 %), seguidos por México, India y otros países de América Latina. Las exportaciones de madera en bruto, muebles y sus derivados (capítulos 44 y 94) alcanzaron un total de 114,1 millones de dólares FOB (2024).
+slide-08/popup-cifras-4.mp3  →  En 2024 se importó un total de USD 314,2 millones CIF en productos correspondientes a los capítulos 44 y 94, lo que representa 353.282 toneladas netas. Los principales países de origen son Ecuador (35 %), China (17 %), Brasil (16 %) y Chile (11 %).
+slide-08/popup-cifras-5.mp3  →  En 2023, por cada mil habitantes se consumieron 182,70 toneladas de insumos naturales del bosque. 134,08 toneladas correspondieron a recursos madereros naturales y 48,62 toneladas a residuos de recursos naturales.
+slide-09/titulo.mp3  →  Cifras del sector forestal colombiano. Movilización. En el año 2024 fueron cuatro los departamentos que concentraron el 62,25 % del volumen total de madera movilizada en el país: Antioquia (30,09 %), Valle del Cauca (15,76 %), Cauca (12,48 %) y Boyacá (5,69 %). En cuanto a la movilización de madera reportada por el Ministerio de Ambiente, los principales departamentos fueron: Nariño (141.575 m³), Antioquia (118.056 m³) y Boyacá (62.245 m³).
+slide-10/titulo.mp3  →  Pon a prueba tus conocimientos. ¡Relaciona cada concepto con su definición!
+slide-10/popup-retro-relaciona.mp3  →  Retroalimentación. La ley 99 del 1993 crea el Sistema Nacional Ambiental (SINA), para la administración del Bosque Natural en Colombia. El Ministerio de Agricultura es la entidad competente para formular la política de cultivos forestales con fines comerciales, y ha delegado funciones en el Instituto Colombiano Agropecuario (ICA). Colombia es un país de alto potencial para el desarrollo forestal con aproximadamente el 50% de su territorio cubierto en bosques naturales; con 14MM de hectáreas con vocación –o aptitud catalogada alta y media– para plantaciones forestales comerciales.
+slide-11/titulo.mp3  →  Algunos conceptos básicos.
+slide-11/popup-e-1.mp3  →  Producto forestal. Es el bien obtenido de la transformación de especímenes de la flora, o derivado de los productos forestales primarios maderables y no maderables provenientes del aprovechamiento de bosque natural y de plantaciones forestales, cultivos forestales o sistemas agroforestales con fines comerciales, arreglos silvícolas de carácter protector y protector-productor, árboles aislados y arbolado urbano.
+slide-11/popup-e-2.mp3  →  Producto forestal maderable. Es la madera que se obtiene del aprovechamiento de especies forestales; así como los productos y derivados que se obtengan de la transformación de ésta. Se diferencian entre rollizos y aserrados.
+slide-11/popup-e-3.mp3  →  Madera legal. Es aquella extraída, transportada, transformada y comercializada cumpliendo con todas las normas nacionales de gestión forestal, ambiental y de seguridad social. Proviene de fuentes autorizadas, garantizando la sostenibilidad de los bosques, la legalidad de los permisos y el pago de impuestos, lo que combate la deforestación y la tala ilegal.
+slide-11/popup-e-4.mp3  →  Gobernanza Forestal. Es el proceso dinámico de articulación y participación de múltiples actores con el propósito de promover la gestión y desarrollo sostenible de los bosques y otros ecosistemas naturales mediante la aplicación de diferentes instrumentos y mecanismos de política, normativos, técnicos, sociales y económicos.
+slide-12/titulo.mp3  →  Cadena forestal. Cadena forestal: de acuerdo con la Ley 811 de 2003 (artículo 1): “La cadena es el conjunto de actividades que se articulan técnica y económicamente desde el inicio de la producción y elaboración de un producto agropecuario hasta su comercialización final. Está conformada por todos los agentes que participan en la producción, transformación, comercialización y distribución de un producto agropecuario”.
+slide-12/popup-eslabon-1.mp3  →  Cadena forestal: de acuerdo con la Ley 811 de 2003 (artículo 1): “La cadena es el conjunto de actividades que se articulan técnica y económicamente desde el inicio de la producción y elaboración de un producto agropecuario hasta su comercialización final. Está conformada por todos los agentes que participan en la producción, transformación, comercialización y distribución de un producto agropecuario”. En el eslabón primario se encuentran los productores (campesinos, comunidades indígenas, afrodescendientes o asociaciones, propietarios privados y empresas forestales) que realizan manejo forestal sostenible en el bosque natural y en plantaciones forestales protectoras productoras; y los reforestadores, empresarios (grandes, medianos y pequeños) que se dedican a los cultivos forestales comerciales como objetivo principal o en arreglos agro y silvopastoriles. Incluye el aprovechamiento forestal y puede realizarse la transformación primaria directa si así se decide en la planificación.
+slide-12/popup-eslabon-2.mp3  →  En el eslabón secundario se encuentra el primer transporte, la transformación primaria (si no se realizó en campo), y la posible comercialización intermedia con el objetivo de agregar valor o distribuir en centros de acopio (depósitos).
+slide-12/popup-eslabon-3.mp3  →  También es posible que la madera sea llevada directamente a la industria para procesos de producción de tableros, pulpa, papeles y cartones, producción de producto terminado (madera de plantaciones forestales), o producción de biomasa y carbón vegetal como forma de maximizar el uso de la materia prima a través de subproductos.
+slide-12/popup-eslabon-4.mp3  →  Finalmente, el último eslabón corresponde a la comercialización local o con destino internacional, ya sea de productos terminados, productos con transformación intermedia o productos con transformación primaria para incorporar a otras cadenas de suministro. El consumidor final se considera aquel que adquiere el producto terminado para su uso y quien no agrega valor con objetivo comercial. Aunque el consumidor final se encuentra en el último eslabón de la cadena, su decisión de compra responsable impacta en todos los eslabones y sus actores, ya que la demanda de un producto legal y sostenible requiere trazabilidad demostrable en toda la cadena de suministro.
+slide-13/titulo.mp3  →  Pon a prueba tus conocimientos. ¡Selecciona la respuesta correcta! ¿Qué entidad se encarga de administrar los recursos forestales naturales en Colombia? a. Se realiza a través del Sistema Nacional Ambiental (SINA). b. El Ministerio de Ambiente y Desarrollo Sostenible. c. El Ministerio de Agricultura y Desarrollo Rural.
+slide-13/popup-q19-ok.mp3  →  Muy bien, has acertado.
+slide-13/popup-q19-mal.mp3  →  Es incorrecto, puedes intentarlo de nuevo.
+slide-14/titulo.mp3  →  Pon a prueba tus conocimientos. ¡Selecciona la respuesta correcta! ¿En qué entidad ha delegado el Ministerio de Agricultura y Desarrollo Rural la formulación de la política de cultivos forestales con fines comerciales? a. Institutos de investigación como IIAP, Sinchi e Invemar. b. Instituto Colombiano Agropecuario (ICA). c. Ministerio de Ambiente y Desarrollo Sostenible.
+slide-14/popup-q21-ok.mp3  →  Muy bien, has acertado.
+slide-14/popup-q21-mal.mp3  →  Es incorrecto, puedes intentarlo de nuevo.
+slide-15/titulo.mp3  →  Pon a prueba tus conocimientos. ¡Selecciona la respuesta correcta! ¿En qué eslabón de la cadena forestal se encuentra el consumidor/comprador? a. Es el actor final de la cadena forestal y se encuentra en el último eslabón. b. Es el actor inicial de la cadena y se encuentra en el primer eslabón. c. Es un actor que se encuentra a lo largo de toda la cadena forestal y que genera, con su decisión, un efecto dominó con impacto en todos los actores.
+slide-15/popup-q23-ok.mp3  →  Muy bien, has acertado.
+slide-15/popup-q23-mal.mp3  →  Es incorrecto, puedes intentarlo de nuevo.
+slide-16/titulo.mp3  →  ¿Te has preguntado en qué se usa la madera?
+slide-17/titulo.mp3  →  Presentación de la madera. Haz clic en cada tipo de madera para conocer su definición.
+slide-17/popup-madera-58.mp3  →  Poste. Soporte vertical principal de sección variable con superficies paralelas entre sí y al eje longitudinal, de relación variable entre el diámetro y longitud según el uso al que se destine. Son considerados como preservados cuando se los trata con creosota, arseniato de cobre cromatado (CCA), u otro similar. Así, mejora la durabilidad del producto en ambientes exteriores.
+slide-17/popup-madera-59.mp3  →  Vara corredor. Es la viga horizontal que se coloca sobre la parte superior de los muros o columnas para servir de apoyo a los pares o viguetas del techo. Sus medidas están entre 6,5 y 7.5 cm de diámetro.
+slide-17/popup-madera-60.mp3  →  Vara limatón. Pieza estructural que se coloca en la intersección del techo que forma un ángulo hacia afuera. Sus medidas están entre 9 y 12.5 cm de diámetro.
+slide-17/popup-madera-61.mp3  →  Pilote. Pieza de madera utilizada para soportar cargas, sus medidas dependen de la carga (peso) que va a soportar. Puede estar entre 13.5 y 15 cm de diámetro.
+slide-17/popup-madera-62.mp3  →  Troza. Cualquier sección sin transformación secundaria de un fuste o de las ramas de un árbol aprovechado.
+slide-17/popup-madera-63.mp3  →  Bloque. Sección de madera rústica en su primera transformación. Presenta diferentes espesores, anchos y largos, dependiendo del objetivo del bloque y el árbol aprovechado. Generalmente presenta textura rústica y marcas de la acción de la motosierra.
+slide-17/popup-madera-64.mp3  →  Viga. Pieza de madera utilizada para soportar cargas, sus medidas dependerán de la carga (peso) que va a soportar. Puede estar entre 6.5-7.5 cm de ancho por 18-20 cm de largo.
+slide-17/popup-madera-65.mp3  →  Tabla. Pieza de madera plana, alargada y rectangular, de caras paralelas, más larga que ancha y más ancha que alta. Los espesores usuales oscilan entre ½ pulgada a 1,5 pulgadas.
+slide-17/popup-madera-66.mp3  →  Tablón. Tabla de espesor mayor a 1,5 pulgadas.
+slide-17/popup-madera-67.mp3  →  Tablero finger joint. Piezas de madera unidas a través del proceso de empalme por medio de cortes en forma de dientes en ‘V’, preparados con precisión en los extremos de dos piezas de madera para ensamblarlos con ayuda de un adhesivo. Así se obtienen piezas de mayor longitud, reduciendo la tensión y mejorando la estabilidad dimensional del producto.
+slide-17/popup-madera-73.mp3  →  Tablero de microlaminado. 
+slide-17/popup-madera-75.mp3  →  Tablero de madera-cemento. Tableros de partículas o astillas cuyo aglutinante es el cemento. El uso más frecuente es para divisiones, cielos rasos, recubrimientos, acabados y cubiertas.
+slide-17/popup-madera-68.mp3  →  Tablero de partículas aglomeradas. Formados por partículas de madera, aglomeradas mediante presión y calor en presencia de un adhesivo termoendurecido.
+slide-17/popup-madera-69.mp3  →  Tablero de fibra o MDF. Tablero fabricado a partir de plaquitas, astillas o partículas de madera desfibradas. En el caso del proceso en seco, se añaden resinas termo endurecibles a las fibras de madera secas, mientras que en el húmedo se agregan las mismas resinas a las fibras de madera húmedas.
+slide-17/popup-madera-70.mp3  →  Tablero contrachapado. Tablero formado por láminas de madera encoladas, de modo que las fibras de una lámina con la otra, y/o dos o más láminas consecutivas, formen un ángulo, generalmente de 90°. Suele ser fabricado con especies de densidad baja.
+slide-17/popup-madera-71.mp3  →  Tablero tricapa o chapeado. Tablero de madera compuesto por un alma, que puede estar constituida por madera aserrada (listones, tablillas, piezas finger joint) o por tableros de fibras o partículas. Está recubierta por láminas de madera contrachapada o decorativa, en la cara y contracara.
+slide-17/popup-madera-72.mp3  →  Tablero de virutas orientadas (OSB). Tablero constituido por astillas o partículas de madera, mezcladas con ayuda de aglutinantes (generalmente impermeables). Normalmente orientadas longitudinalmente en superficie y perpendicularmente o de forma aleatoria en el interior del tablero, a fin de mejorar sus características mecánicas.
+slide-17/popup-madera-74.mp3  →  Tablero laminado de alta presión. 
+slide-17/popup-categoria-rolliza.mp3  →  Madera rolliza. Madera en su estado natural, seccionada y/o desbastada para eliminar ramas u otras protuberancias que dificulten su transporte. Es el insumo principal para la industria del aserrío y bobinado de madera.
+slide-17/popup-categoria-aserrada.mp3  →  Madera aserrada. Pieza de madera en forma de paralelepípedo regular, obtenida por medio de sierras manuales, mecánicas (sierra de cinta, de disco o alternativa) o por un proceso de desenrollado.
+slide-17/popup-madera-ver-mas.mp3  →  Madera maciza y derivados de madera.
+slide-18/titulo.mp3  →  Tendencias de uso de la madera aserrada.
+slide-18/popup-e-1.mp3  →  De uso temporal. Generalmente se descartan luego de su uso como formaletas, andamios, estacas, cerramientos y vigas temporales.
+slide-18/popup-e-2.mp3  →  Para construcción. De alta resistencia mecánica y se utilizan con objetivo estructural como vigas y columnas.
+slide-18/popup-e-3.mp3  →  De uso estético. De buen veteado y color, usada para acabados y elementos a la vista, no es estructural.
+slide-18/popup-e-4.mp3  →  Para elementos interiores. Admite baja calidad en la apariencia y defectos pues está sujeta a enchapado, pintura o barnizado.
+slide-19/titulo.mp3  →  Ventajas del uso de madera. Aquí se destacan algunas de las ventajas de usar madera legal y sostenible en usos transitorios o permanentes en obras de construcción, instrumentos musicales, mobiliario, artesanías, entre otros.
+slide-19/popup-r-tree.mp3  →  Material natural de origen renovable y con cadenas de suministro controladas para garantizar sostenibilidad.
+slide-19/popup-r-bulb.mp3  →  Por sus características, es de fácil reuso o reciclaje.
+slide-19/popup-r-truck.mp3  →  Material liviano, lo cual reduce los costos de transporte y disposición final.
+slide-19/popup-r-gear.mp3  →  Es adaptable al diseño estético y belleza final cuando se usa en construcción.
+slide-19/popup-r-roots.mp3  →  Reservorio de carbono secuestrado de la atmósfera de almacenamiento de largo plazo.
+slide-19/popup-r-bin.mp3  →  Ser un buen aislante acústico por sus características de densidad y estructura porosa.
+slide-19/popup-r-recycle.mp3  →  Por sus excelentes características porosas, puede ser un aislante térmico.
+slide-20/titulo.mp3  →  ¿Qué es un consumo responsable de productos forestales maderables?
+slide-21/titulo.mp3  →  Algunos conceptos básicos. Consumo sostenible, Objetivo 12 de los ODS y Política nacional de producción y consumo sostenible.
+slide-22/titulo.mp3  →  ¿Qué es una compra responsable de productos forestales maderables?
+slide-23/titulo.mp3  →  ¿Cuáles son los beneficios de comprar responsablemente?
+slide-23/popup-beneficios-1.mp3  →  Mejora de imagen reputacional
+slide-23/popup-beneficios-2.mp3  →  Oportunidades de acceso a mercados diferenciados
+slide-23/popup-beneficios-3.mp3  →  Generación de redes de valor
+slide-23/popup-beneficios-4.mp3  →  Sostenibilidad ambiental
+slide-23/popup-beneficios-5.mp3  →  Sostenibilidad social
+slide-24/titulo.mp3  →  Rol del consumidor/comprador responsable
+slide-25/titulo.mp3  →  ¿Qué promueves como consumidor/comprador responsable?
+slide-25/popup-e-1.mp3  →  Promueves la cadena de valor
+slide-25/popup-e-2.mp3  →  Promueve la economía circular
+slide-25/popup-e-3.mp3  →  Promueve la conciencia a través del ejemplo
+slide-25/popup-e-4.mp3  →  Promueve el consumo/compra local
+slide-26/titulo.mp3  →  Para reflexionar.
+slide-26/popup-e-1.mp3  →  Como comprador, debes asegurarte de adquirir productos forestales maderables en establecimientos comerciales legalmente constituidos; cuya compra sea respaldada por una factura, sin evadir el pago del IVA, ya que impactan negativamente a todo el sector y puedes recibir sanciones.
+slide-26/popup-e-2.mp3  →  Un consumidor responsable puede convertirse en el catalizador del cambio en la cadena productiva forestal, modificaciones ligeras en nuestros hábitos de consumo pueden generar un gran impacto en la sociedad. Es primordial implementar políticas de compra responsable que apoyen un cambio hacia prácticas sostenibles.
+slide-26/popup-e-3.mp3  →  Como comprador y consumidor debes: informarte del origen del producto que consumes y el impacto que genera su obtención; cuestionar tu necesidad de consumo y aplicar el pensamiento de reducir, reutilizar, reusar, reciclar; y elegir la opción que genere menor impacto negativo, mayor confiabilidad y beneficio social.
+slide-27/titulo.mp3  →  Para resumir. Resumiendo, el consumo responsable corresponde a la adquisición de productos forestales maderables para uso doméstico o uso final sin interés comercial, por tanto, es realizada por individuos que aplican criterios ambientales, sociales y económicos; verifican etiquetas de certificación creíbles y seleccionan establecimientos comerciales legales. Por otro lado, la compra responsable se asocia a la realizada por empresas públicas o empresas privadas que, a través de la definición de un programa de compra responsable, implementan una hoja de ruta con pasos secuenciales, indicadores y verificadores para la selección de proveedores de productos forestales maderables terminados, o en transformación intermedia, para construcción, adecuación o mobiliario; entre otros usos y servicios que prestan estos productos. Tanto los compradores como los consumidores responsables reconocen su rol en la cadena forestal y su impacto en la degradación o conservación de los bosques, las dinámicas de mercado, el cumplimiento legal, laboral, y la distribución de beneficios de manera equitativa en la cadena productiva.
+slide-28/titulo.mp3  →  Conoce más
+slide-29/titulo.mp3  →  Bibliografía.
+slide-30/titulo.mp3  →  Bibliografía.
+slide-31/titulo.mp3  →  Bibliografía. Videos finales.
+slide-32/titulo.mp3  →  ¡Felicitaciones! Finalizaste los contenidos del Módulo 1 con éxito.
+slide-33/titulo.mp3  →  Introducción a la compra y consumo responsable de productos forestales maderables.
