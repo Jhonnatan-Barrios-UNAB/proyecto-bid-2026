@@ -1,0 +1,83 @@
+MULTIMEDIA · MÓDULO 1 · Introducción a la compra y consumo responsable de productos forestales maderables
+Proyecto BID · Primera versión
+=====================================================================================================
+
+CÓMO ABRIRLO
+- Para probarlo con todo funcionando (videos locales y visor PDF), ábrelo desde un servidor web:
+  súbelo a Moodle/Canvas (como recurso HTML) o ejecuta en esta carpeta:  python -m http.server
+  y entra a http://localhost:8000
+- Con doble clic en index.html también funciona; el PDF se abre con el visor nativo del navegador.
+
+ESTRUCTURA
+  index.html                    Las 33 pantallas (el diseño de ppt-design reproducido en un escenario 1920×1080)
+  css/estilos.css               Animaciones, estados, popups, barra inferior, menú y paneles
+  js/config.js                  ← AQUÍ se cambian sonidos, videos, documentos e imágenes
+  js/app.js                     Navegación, sonidos, locuciones, progreso, popups, tarjetas, preguntas, videos y visor PDF
+  assets/img/diseno/            Imágenes extraídas de ppt-design (personajes, ilustraciones, fondos, logos)
+  assets/img/contenido/         Imágenes de contenido pendientes (cada carpeta trae un LEEME)
+  assets/audio/                 inicio.mp3 · fin.mp3 · cambio-slide.mp3 · popup.mp3 · correcto.mp3 · incorrecto.mp3
+  assets/audio/locuciones/      Una carpeta por pantalla (slide-XX) con titulo.mp3 y popup-<id>.mp3 · GUION.txt
+  videos/slide-XX/              Una carpeta por pantalla con video. Coloca ahí video.mp4 (ver el LEEME de cada carpeta)
+  documentos/                   PDF del módulo (Mapa UPRA y Guía de compra y consumo responsable)
+  assets/fonts/                 Work Sans (incluida, funciona sin internet)
+  assets/lib/                   pdf.js (visor PDF)
+
+DISEÑO
+  Cada pantalla reproduce la diapositiva de ppt-design en su posición, tamaño, color y tipografía.
+  Los controles (menú, sonido, configuración, avance y los botones Anterior/Siguiente con el estilo
+  del botón "Ver mapa") están en una barra DEBAJO del diseño, para no tapar personajes ni logos.
+
+ADAPTABLE (RESPONSIVE)
+  El diseño se escala al espacio libre de la pantalla y se apoya sobre la barra (sin franja vacía entre ambos).
+  La barra, el menú lateral, los paneles, los subtítulos y el popup de video/imagen van a tamaño real de pantalla,
+  así se leen bien en portátil, tableta y celular. La barra se compacta por tamaños: en pantallas medianas los
+  botones quedan solo con ícono; en celular Anterior/Siguiente pasan a flechas redondas.
+  En celular vertical aparece un aviso (que se puede cerrar) para girar el dispositivo; no bloquea el contenido.
+  Botón de pantalla completa en la barra (si el navegador lo permite). Con el dedo no quedan efectos hover "pegados".
+  Los controles de los videos dentro del diseño se agrandan en pantallas pequeñas para poder tocarlos.
+
+SONIDO AL INICIAR
+  Los navegadores bloquean el audio hasta el primer clic. Si al cargar la portada el sonido de inicio no puede
+  sonar solo, aparece el botón "Comenzar": al tocarlo suenan el inicio y la locución de la portada.
+
+ANIMACIÓN
+  Al entrar a una pantalla, cada elemento aparece uno tras otro con 0,3 s de retraso, en orden de lectura:
+  módulo, título, personaje, contenido (de arriba abajo y de izquierda a derecha), instrucciones y fuentes.
+  Al interactuar (pestañas, menús, tarjetas) solo se anima el contenido que entra; los botones no se vuelven a animar.
+  La gráfica de la pantalla 9 se arma por partes (ejes, barras y cifras); los textos y tablas no cuentan números.
+
+PESTAÑAS (pantallas 11, 18 y 25)
+  Al entrar no hay ninguna pestaña elegida: el usuario da clic para ver cada contenido. Al cambiar de pestaña,
+  primero sale el contenido anterior (0,3 s) y luego entra el nuevo.
+
+BOTONES CON ESTADOS (pantallas 3, 4, 12 y 26)
+  Sin visitar: ícono azul del diseño · Hover: el mismo ícono en ámbar · Visitado: el mismo ícono en verde con fondo blanco.
+  Las variantes están en assets/img/diseno/estados/. En las pantallas 4 y 26 el contenido aparece al hacer clic y se queda.
+
+SONIDOS
+  inicio (pantalla 1), fin (Felicitaciones), cambio de pantalla, popup abierto, respuesta correcta / incorrecta.
+  Reemplaza los archivos de assets/audio/ por otros con el MISMO nombre.
+
+LOCUCIONES
+  assets/audio/locuciones/slide-XX/titulo.mp3      → se reproduce al entrar a la pantalla
+  assets/audio/locuciones/slide-XX/popup-<id>.mp3  → se reproduce al abrir ese popup, pestaña, tarjeta o ítem
+  Por ahora todas tienen el MISMO audio provisional. GUION.txt lista cada archivo con el texto que debe decir.
+  El botón CC muestra u oculta los subtítulos (salen del texto del guion).
+
+VIDEOS
+  Los espacios "Dejar aquí el video de YouTube" quedaron como reproductores propios
+  (reproducir/pausar, retroceder/adelantar 10 s, velocidad 1x · 1,5x · 2x, barra de progreso y pantalla completa).
+  Cada uno busca videos/slide-XX/video.mp4. Mientras no esté el archivo, muestra "Video pendiente de cargar".
+
+DOCUMENTOS
+  Mapa UPRA: clic sobre el mapa de la pantalla 5.  Guía de compra: botón "Material de apoyo" de la barra inferior.
+
+AVANCE
+  El porcentaje cuenta pantallas visitadas, pestañas, popups, tarjetas, ítems, videos, documentos y actividades.
+  Clic en "Avance %" para ver lo que falta, agrupado por pantalla, con enlaces directos.
+  Configuración (engranaje): Recordar estado anterior, Locuciones, Efectos, Subtítulos y Reiniciar avance.
+
+NAVEGACIÓN
+  Botones Anterior/Siguiente, flechas del teclado, deslizar en el celular, menú lateral ☰,
+  o directo a una pantalla con #número en la URL (ej. index.html#12).
+  En la tabla de contenido (pantalla 3) cada tema lleva a su primera pantalla; ahí aparece el botón "Contenido" para volver.
