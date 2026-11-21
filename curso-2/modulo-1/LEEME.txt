@@ -46,6 +46,12 @@ ANIMACIÓN
   Al interactuar (pestañas, menús, tarjetas) solo se anima el contenido que entra; los botones no se vuelven a animar.
   En la pantalla 13 (importancia cultural y social) aparece primero la imagen central y luego los ítems, como pide ppt-contenidos.
 
+LOCUCIÓN GENERAL (reproductor dentro del slide, arriba a la derecha)
+  Pantallas 4, 5, 6, 7, 10, 11, 12, 13, 16, 17, 18, 19, 20, 23, 24, 26, 27 y 28: primero suena el título y luego la
+  locución general (notas de ppt-contenidos). Play/pausa, barra de tiempo, duración y velocidad 1x/1,5x/2x. Al abrir un
+  popup o un elemento interactivo se pausa y se reanuda al cerrarlo; si ya terminó no vuelve a sonar sola.
+  Subtítulos con el botón CC. Audios: assets/audio/locuciones/slide-XX/general.mp3.
+
 INTERACCIONES
   Pantalla 3  · Tabla de contenido: cada ícono lleva a su subsección (normal: diseño · hover: ámbar · visitado: fondo verde claro).
   Pantalla 6  · Clic sobre el mapa para verlo ampliado.
