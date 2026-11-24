@@ -495,3 +495,52 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 .rl-barra::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;margin-top:-6px;border-radius:50%;background:#fff;border:4px solid #00547B;box-shadow:0 1px 4px rgba(0,0,0,.25)}
 .rl-barra::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#fff;border:4px solid #00547B}
 .rl-vel{flex:0 0 auto;min-width:62px;height:40px;padding:0 10px;border-radius:20px!important;background:#F1F5E9;color:#00547B;font-weight:700!important;font-size:18px!important;border:2px solid #C1D0A7!important}
+
+/* ===== v9 · Foco con teclado: los elementos con estado over propio muestran ESE estado (sin aro) ===== */
+.hot.con-over:focus-visible,.hot.grupo-miembro:focus-visible,.hot.con-marco:focus-visible,.hot.op:focus-visible,
+.bc:focus-visible,.pildora-doc:focus-visible,.pct:focus-visible,.btn-volver:focus-visible,.btn-nav:focus-visible,
+.menu-lista button:focus-visible,.dpop [data-continuar]:focus-visible,.dpop [data-reintentar]:focus-visible,.bpop-x:focus-visible,
+.gen-x:focus-visible,.vp-controles button:focus-visible,.pf-cerrar:focus-visible,.opt:focus-visible,.visor-barra button:focus-visible,
+.rl-play:focus-visible,.rl-vel:focus-visible,.tarjeta-hot:focus-visible,.vp-portada:focus-visible{outline:none}
+.bc:focus-visible{background:var(--oliva-osc);transform:translateY(-2px) scale(1.05)}
+.bc.cc:focus-visible{color:#fff;border-color:var(--oliva-osc)}
+.pildora-doc:focus-visible,.pct:focus-visible{background:var(--niebla);transform:translateY(-2px)}
+.btn-volver:focus-visible{background:var(--oliva-osc);transform:translateY(-2px)}
+.btn-nav:focus-visible{transform:translateY(-3px);filter:drop-shadow(0 6px 8px rgba(0,0,0,.18))}
+.menu-lista button:focus-visible{background:var(--niebla);color:var(--azul);box-shadow:inset 4px 0 0 var(--ambar)}
+.dpop [data-continuar]:focus-visible,.dpop [data-reintentar]:focus-visible{transform:translateY(-3px);filter:drop-shadow(0 6px 10px rgba(0,0,0,.18))}
+.bpop-x:focus-visible{transform:rotate(90deg) scale(1.08)}
+.gen-x:focus-visible,.vp-controles button:focus-visible,.pf-cerrar:focus-visible,.visor-barra button:focus-visible{background:var(--ambar)}
+.opt:focus-visible{background:var(--crema-2)}
+.rl-play:focus-visible{transform:scale(1.07);background:#0B6B97}.rl-vel:focus-visible{background:#D8E2C7}
+.tarjeta-hot:focus-visible{background:transparent;box-shadow:0 0 0 5px rgba(253,178,53,.6)}
+.vp-portada:focus-visible .vp-play{transform:scale(1.08);background:#ffc457}
+/* grupo (ícono + texto con la misma acción) sin estado over propio: un solo marco alrededor de todo */
+.marco-grupo{position:absolute;z-index:19;border-radius:18px;box-shadow:0 0 0 4px var(--ambar);opacity:0;transition:opacity .2s;pointer-events:none}
+.marco-grupo.ver{opacity:1}
+/* el resto (sin estado over): marco ámbar redondeado que sigue la forma del botón */
+.hot:focus-visible{outline:3px solid var(--ambar);outline-offset:3px}
+em.cursiva{font-style:italic}
+/* número de sección dentro de la hojita verde del título (regla del proyecto) */
+.num-hoja{display:flex;align-items:center;justify-content:center;z-index:3;pointer-events:none}
+.num-hoja span{font-family:'Work Sans',Arial,sans-serif;font-weight:700;font-size:23px;color:#fff;line-height:1;transform:translate(1px,1px);text-shadow:0 1px 2px rgba(0,0,0,.18)}
+/* enlaces escritos en el texto (bibliografía): clicables, abren en pestaña nueva */
+a.enlace{color:#00547B;text-decoration:underline;text-underline-offset:2px;word-break:break-all;pointer-events:auto;cursor:pointer;position:relative;z-index:25}
+a.enlace:hover,a.enlace:focus-visible{color:#0B6B97;background:rgba(253,178,53,.25);border-radius:3px;outline:none}
+
+/* ---------- v9: retroalimentación con las notas en texto (respuesta correcta) ---------- */
+.el.retro-notas .tx{justify-content:flex-start!important}
+.el.retro-notas p{text-align:left!important}
+.el.retro-notas p+p{margin-top:.55em}
+/* fin del texto con desvanecido suave para que se note que sigue (scroll) */
+.el.retro-notas .tx{-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent);padding-bottom:48px!important}
+
+/* ---------- v9: reproductor de la locución dentro de popups (locuciones de 200 caracteres o más) ---------- */
+.repro-loc.rl-pop{width:440px;animation:none;opacity:1;z-index:40;pointer-events:auto}
+.dpop:not(.abierto) .repro-loc.rl-pop .rl-play::after{animation:none}
+/* botón o forma de origen mientras su popup está abierto (pestañas/etapas que siguen visibles) */
+.el.pop-activo .geo path{fill:var(--pop-activo,#D8E3C7)}
+/* popups sin velo: solo su área recibe clics; el resto del slide sigue disponible */
+.dpop.sin-velo .dpop-capa{pointer-events:none}
+.dpop.sin-velo .dpop-capa > *{pointer-events:auto}
+.dpop.sin-velo .dpop-capa > .el:not(.scroll):not(.hot){pointer-events:auto}

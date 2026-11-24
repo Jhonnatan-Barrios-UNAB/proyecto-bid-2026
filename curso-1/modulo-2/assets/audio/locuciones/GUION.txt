@@ -1,0 +1,104 @@
+GUION DE LOCUCIONES · Curso 1 · Módulo 2 (proyecto BID)
+Audios reales: 0 de 98 (detalle en registro-locuciones.json; los demás tienen el audio provisional).
+Se generan con la skill generar-locuciones-bid (voz laura_argel). titulo.mp3 = título del slide; general.mp3 = locución general
+(suena después del título, con su reproductor en el slide); popup-*.mp3 = cada elemento interactivo.
+Los subtítulos (CC) se generan con el texto de este guion y se reparten según la duración del audio.
+
+slide-01/titulo.mp3  →  Módulo 2. Instrumentos para la compra y consumo responsable de productos forestales maderables.
+slide-02/titulo.mp3  →  Tabla de contenido.
+slide-03/titulo.mp3  →  Video inicial.
+slide-04/titulo.mp3  →  Resumen del módulo anterior. Veamos los recursos forestales.
+slide-04/popup-e-1.mp3  →  Bosque natural.
+slide-04/popup-e-2.mp3  →  Bosque plantado: corresponde a las áreas de reforestación con especies tanto nativas como exóticas, y cuyo establecimiento puede ser el producto de un proceso productivo o con fines de protección y conservación ambiental.
+slide-04/popup-e-3.mp3  →  Otros ecosistemas forestales: tierra ocupada por ecosistemas con presencia de individuos forestales con distribución dispersa, incluyen pastos arbolados; o en arreglos con baja densidad de individuos forestales, arreglos agrosilvopastoriles.
+slide-05/titulo.mp3  →  Instrumentos normativos.
+slide-06/titulo.mp3  →  En resumen, sobre el video introductorio del marco normativo forestal.
+slide-06/popup-r-1.mp3  →  Bosque natural.
+slide-06/popup-r-2.mp3  →  Otros ecosistemas naturales: páramos, humedales, sabanas, etc.
+slide-06/popup-r-3.mp3  →  Plantaciones forestales protectoras.
+slide-06/popup-r-4.mp3  →  Plantaciones forestales protectoras-productoras.
+slide-06/popup-r-5.mp3  →  Plantaciones forestales y sistemas agroforestales con fines comerciales.
+slide-07/titulo.mp3  →  Marco normativo forestal.
+slide-07/popup-anio-7-1959.mp3  →  1959.
+slide-07/popup-anio-7-1974.mp3  →  1974.
+slide-07/popup-anio-7-1991.mp3  →  1991.
+slide-07/popup-anio-7-1993.mp3  →  1993.
+slide-07/popup-anio-7-1994.mp3  →  1994.
+slide-07/popup-anio-7-1996.mp3  →  1996.
+slide-07/popup-anio-7-2015.mp3  →  2015.
+slide-08/titulo.mp3  →  Marco normativo forestal.
+slide-08/popup-anio-8-2017.mp3  →  2017.
+slide-08/popup-anio-8-2018.mp3  →  2018.
+slide-08/popup-anio-8-2019.mp3  →  2019.
+slide-08/popup-anio-8-2024.mp3  →  2024.
+slide-09/titulo.mp3  →  Marco normativo forestal.
+slide-09/popup-anio-9-2015.mp3  →  2015.
+slide-09/popup-anio-9-2018.mp3  →  2018.
+slide-09/popup-anio-9-2019.mp3  →  2019.
+slide-09/popup-anio-9-2020.mp3  →  2020.
+slide-10/titulo.mp3  →  Administración del acceso al recurso forestal
+slide-10/popup-recurso-1.mp3  →  Plantaciones forestales protectoras-productoras.
+slide-10/popup-recurso-2.mp3  →  Árboles aislados.
+slide-10/popup-recurso-3.mp3  →  Cercas vivas.
+slide-10/popup-recurso-4.mp3  →  Barreras rompevientos.
+slide-10/popup-recurso-5.mp3  →  Árboles de sombrío.
+slide-10/popup-recurso-6.mp3  →  Árboles frutales con características leñosas.
+slide-10/popup-recurso-7.mp3  →  Guaduales y bambusales categorías 1 y 2.
+slide-11/titulo.mp3  →  Administración del acceso al recurso forestal.
+slide-11/popup-r-1.mp3  →  Cultivos o plantaciones forestales comerciales.
+slide-11/popup-r-2.mp3  →  Sistemas Agroforestales - SAF.
+slide-11/popup-r-3.mp3  →  Plantaciones forestales con recursos del Certificado de Incentivo Forestal.
+slide-11/popup-r-4.mp3  →  Barreras rompevientos y cercas vivas.
+slide-11/popup-registro-ica.mp3  →  El registro de plantaciones forestales y sistemas agroforestales con fines comerciales tiene como objetivo permitir la cosecha forestal para la obtención de productos forestales maderables (madera). No aplica para la producción de látex o de productos no maderables que sean aprovechados de plantaciones forestales comerciales.
+slide-12/titulo.mp3  →  Pon a prueba tus conocimientos. ¡Selecciona la respuesta correcta! ¿Qué entidad tiene la competencia de registrar los sistemas agroforestales SAF? a. Ministerio de Ambiente y Desarrollo Sostenible. b. Autoridad Ambiental Regional. c. Instituto Colombiano Agropecuario.
+slide-12/popup-q13-ok.mp3  →  Muy bien.
+slide-12/popup-q13-mal.mp3  →  Repasa el contenido.
+slide-13/titulo.mp3  →  Pon a prueba tus conocimientos. ¡Selecciona la respuesta correcta! ¿Qué entidad tiene la competencia de registrar las plantaciones forestales protectoras productoras que no accedieron a CIF? a. Ministerio de Ambiente y Desarrollo Sostenible. b. Autoridad Ambiental Regional competente. c. Instituto Colombiano Agropecuario.
+slide-13/popup-q14-ok.mp3  →  Muy bien.
+slide-13/popup-q14-mal.mp3  →  Repasa el contenido.
+slide-14/titulo.mp3  →  Pon a prueba tus conocimientos. ¡Selecciona la respuesta correcta! ¿El aprovechamiento de las cercas vivas y barreras rompevientos que no hagan parte de cultivos forestales, sistemas agroforestales y plantaciones CIF requerirán algún permiso o autorización? a. Sí, ante la Autoridad Ambiental Regional. b. No, solo requerirán SUNL.
+slide-14/popup-q15-ok.mp3  →  Muy bien.
+slide-14/popup-q15-mal.mp3  →  Repasa el contenido del decreto 1532 de 2019.
+slide-15/titulo.mp3  →  El sistema de trazabilidad forestal
+slide-15/popup-trazabilidad.mp3  →  El objetivo es implementar un Sistema Nacional de Trazabilidad Forestal en línea que permita realizar el seguimiento histórico, ubicación y trayectoria a los productos forestales de primer y segundo grado de transformación, a lo largo de su cadena de abastecimiento, desde su origen hasta su destino final.
+slide-16/titulo.mp3  →  Aplicativo Forestales+
+slide-16/popup-aplicativo.mp3  →  El Aplicativo Forestales del ICA es una herramienta tecnológica vía web que permite el registro de plantaciones forestales y sistemas agroforestales con fines comerciales; y la expedición de certificados de movilización de productos de transformación primaria obtenidos de áreas debidamente registradas.
+slide-17/titulo.mp3  →  Productos forestales maderables
+slide-17/popup-mas-1.mp3  →  Productos forestales maderables.
+slide-17/popup-mas-2.mp3  →  Productos forestales de transformación primaria: son los productos obtenidos directamente a partir de las trozas, tales como: bloques, bancos, tablones, tablas y chapas, entre otros, sin ser sometidos a ningún proceso o grado de elaboración y/o de acabado industrial con mayor valor agregado.
+slide-17/popup-mas-3.mp3  →  Productos forestales de transformación secundaria: productos de la madera obtenidos mediante diferentes procesos y grados de elaboración y de acabado industrial con mayor valor agregado como molduras, puertas, muebles, contrachapados y otros productos terminados afines.
+slide-18/titulo.mp3  →  Para resumir.
+slide-19/titulo.mp3  →  Pon a prueba tus conocimientos. ¡Relaciona cada producto forestal maderable con el documento que debe amparar su movilización!
+slide-19/popup-retro-relaciona-productos.mp3  →  Muy bien.
+slide-20/titulo.mp3  →  Instrumentos técnicos.
+slide-20/popup-e-1.mp3  →  Nuevas fichas técnicas con criterios ambientales 2019-2025.
+slide-20/popup-e-2.mp3  →  Guía para la compra responsable de madera en el sector de la construcción.
+slide-20/popup-e-3.mp3  →  Reglamento Colombiano de Construcción Sismo Resistente.
+slide-20/popup-ficha-ver-mas.mp3  →  Nuevas fichas técnicas con criterios ambientales 2019-2025.
+slide-20/popup-guia-ver-mas.mp3  →  Guía para la compra responsable de madera en el sector de la construcción.
+slide-20/popup-nsr-ver-mas.mp3  →  Reglamento Colombiano de Construcción Sismo Resistente.
+slide-21/titulo.mp3  →  Instrumentos de mercado. Certificación Forestal Voluntaria.
+slide-21/popup-fsc.mp3  →  Consejo de Administración Forestal (FSC).
+slide-22/titulo.mp3  →  Impacto en Colombia
+slide-22/popup-fsc-colombia.mp3  →  En Colombia, el FSC inició su actividad en 1996 y ya cuenta con un estándar nacional de manejo forestal responsable adaptado para el país, así como la primera empresa forestal comunitaria afrodescendiente certificada en Latinoamérica.
+slide-23/titulo.mp3  →  Instrumentos de mercado. Esquema de Reconocimiento a la Procedencia Legal.
+slide-23/popup-esquema.mp3  →  Esquema de Reconocimiento a la Procedencia Legal.
+slide-24/titulo.mp3  →  Esquema de Reconocimiento a la Procedencia Legal. Beneficios para los usuarios (empresas).
+slide-24/popup-esquema-empresas.mp3  →  Formarán parte del esquema, todas aquellas empresas forestales que hayan cumplido exitosamente el proceso de verificación, y que cuenten con el reconocimiento otorgado por la autoridad ambiental competente.
+slide-25/titulo.mp3  →  ¿Cómo acceder?
+slide-25/popup-verificadores.mp3  →  Evaluación de los verificadores.
+slide-26/titulo.mp3  →  Resultado.
+slide-26/popup-resultado.mp3  →  Reconocimiento de la Autoridad Ambiental.
+slide-27/titulo.mp3  →  Esquema de Reconocimiento a la Procedencia Legal. Beneficios para el consumidor.
+slide-28/titulo.mp3  →  Pon a prueba tus conocimientos. ¡Selecciona la respuesta correcta! ¿Qué es un verificador obligatorio? a. Confirma que el producto se encuentra certificado. b. Acciones de trazabilidad establecidas en los protocolos de gobernanza forestal. c. Es un requisito establecido por el Decreto 1076/2015, o por la A.A. competente.
+slide-28/popup-q31-ok.mp3  →  Muy bien.
+slide-28/popup-q31-mal.mp3  →  Revisa el contenido.
+slide-29/titulo.mp3  →  Pon a prueba tus conocimientos. ¡Relaciona la descripción con el instrumento!
+slide-29/popup-retro-relaciona-instrumentos.mp3  →  Muy bien.
+slide-30/titulo.mp3  →  Pon a prueba tus conocimientos. Completa la frase:  Uno de los beneficios de que una empresa cuente con el reconocimiento a la procedencia legal es que: Toca los fragmentos en orden para completarla.
+slide-30/popup-frase-ok.mp3  →  Muy bien. La frase completa es: mejora la competitividad forestal y la apertura hacia nuevos mercados.
+slide-30/popup-frase-mal.mp3  →  Repasa el contenido.
+slide-31/titulo.mp3  →  Bibliografía.
+slide-32/titulo.mp3  →  Bibliografía.
+slide-33/titulo.mp3  →  ¡Felicitaciones! Finalizaste los contenidos del Módulo 2 con éxito.
+slide-34/titulo.mp3  →  Instrumentos para la compra y consumo responsable de productos forestales maderables.

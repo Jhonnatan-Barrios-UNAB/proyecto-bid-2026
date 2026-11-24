@@ -1,6 +1,6 @@
 GUION DE LOCUCIONES · Curso 1 · Módulo 1 (proyecto BID)
-Todas las locuciones tienen por ahora el MISMO audio provisional (las generales, general.mp3, uno más largo).
-Reemplaza cada archivo por otro con el MISMO nombre. titulo.mp3 = título del slide; general.mp3 = locución general
+Audios reales: 104 de 104 (detalle en registro-locuciones.json; los demás tienen el audio provisional).
+Se generan con la skill generar-locuciones-bid (voz laura_argel). titulo.mp3 = título del slide; general.mp3 = locución general
 (suena después del título, con su reproductor en el slide); popup-*.mp3 = cada elemento interactivo.
 Los subtítulos (CC) se generan con el texto de este guion y se reparten según la duración del audio.
 
@@ -18,8 +18,8 @@ slide-05/popup-ver-mas-cultivos.mp3  →  Plantaciones forestales por departamen
 slide-06/titulo.mp3  →  Cultivos forestales con fines comerciales. Zonificación para plantaciones forestales.
 slide-07/titulo.mp3  →  Cultivos forestales con fines comerciales. Entidad competente.
 slide-08/titulo.mp3  →  Cifras del sector forestal colombiano.
-slide-08/popup-cifras-1.mp3  →  Aporte de 3.5 billones de pesos al valor agregado (2024 pr).
-slide-08/popup-cifras-2.mp3  →  La balanza comercial es deficitaria (2024).
+slide-08/popup-cifras-1.mp3  →  Aporte de 3.5 billones de pesos al valor agregado.
+slide-08/popup-cifras-2.mp3  →  La balanza comercial es deficitaria.
 slide-08/popup-cifras-3.mp3  →  Los principales destinos de exportación son Estados Unidos (18,7 %), Panamá (16,3 %) y China (12,3 %), seguidos por México, India y otros países de América Latina.
 slide-08/popup-cifras-4.mp3  →  En 2024 se importó un total de USD 314,2 millones CIF en productos correspondientes a los capítulos 44 y 94, lo que representa 353.282 toneladas netas.
 slide-08/popup-cifras-5.mp3  →  En 2023, por cada mil habitantes se consumieron 182,70 toneladas de insumos naturales del bosque.
@@ -92,14 +92,14 @@ slide-23/popup-beneficios-4.mp3  →  Sostenibilidad ambiental
 slide-23/popup-beneficios-5.mp3  →  Sostenibilidad social
 slide-24/titulo.mp3  →  Rol del consumidor/comprador responsable
 slide-25/titulo.mp3  →  ¿Qué promueves como consumidor/comprador responsable?
-slide-25/popup-e-1.mp3  →  Promueves la cadena de valor
+slide-25/popup-e-1.mp3  →  Promueve la cadena de valor
 slide-25/popup-e-2.mp3  →  Promueve la economía circular
 slide-25/popup-e-3.mp3  →  Promueve la conciencia a través del ejemplo
 slide-25/popup-e-4.mp3  →  Promueve el consumo/compra local
 slide-26/titulo.mp3  →  Para reflexionar.
 slide-26/popup-e-1.mp3  →  Como comprador, debes asegurarte de adquirir productos forestales maderables en establecimientos comerciales legalmente constituidos; cuya compra sea respaldada por una factura, sin evadir el pago del IVA, ya que impactan negativamente a todo el sector y puedes recibir sanciones.
 slide-26/popup-e-2.mp3  →  Un consumidor responsable puede convertirse en el catalizador del cambio en la cadena productiva forestal, modificaciones ligeras en nuestros hábitos de consumo pueden generar un gran impacto en la sociedad. Es primordial implementar políticas de compra responsable que apoyen un cambio hacia prácticas sostenibles.
-slide-26/popup-e-3.mp3  →  Como comprador y consumidor debes: informarte del origen del producto que consumes y el impacto que genera su obtención; cuestionar tu necesidad de consumo y aplicar el pensamiento de reducir, reutilizar, reusar, reciclar; y elegir la opción que genere menor impacto negativo, mayor confiabilidad y beneficio social.
+slide-26/popup-e-3.mp3  →  Como comprador y consumidor debes: informarte del origen del producto que consumes y el impacto que genera su obtención; cuestionar tu necesidad de consumo y aplicar el pensamiento de reducir, reutilizar, reusar, reciclar; y elegir la opción que genere menor impacto negativo, mayor confiabilidad y beneficio social, priorizando productos forestales cuyo origen legal esté garantizado. Para ello puedes utilizar herramientas como la certificación forestal voluntaria, el reconocimiento a la procedencia legal, y el catálogo de productos en elijamaderalegal.com sobre los que profundizaremos en el siguiente módulo.
 slide-27/titulo.mp3  →  Para resumir.
 slide-27/general.mp3  →  Resumiendo, el consumo responsable corresponde a la adquisición de productos forestales maderables para uso doméstico o uso final sin interés comercial, por tanto, es realizada por individuos que aplican criterios ambientales, sociales y económicos; verifican etiquetas de certificación creíbles y seleccionan establecimientos comerciales legales. Por otro lado, la compra responsable se asocia a la realizada por empresas públicas o empresas privadas que, a través de la definición de un programa de compra responsable, implementan una hoja de ruta con pasos secuenciales, indicadores y verificadores para la selección de proveedores de productos forestales maderables terminados, o en transformación intermedia, para construcción, adecuación o mobiliario; entre otros usos y servicios que prestan estos productos. Tanto los compradores como los consumidores responsables reconocen su rol en la cadena forestal y su impacto en la degradación o conservación de los bosques, las dinámicas de mercado, el cumplimiento legal, laboral, y la distribución de beneficios de manera equitativa en la cadena productiva.
 slide-28/titulo.mp3  →  Conoce más

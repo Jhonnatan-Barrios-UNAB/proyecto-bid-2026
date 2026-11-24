@@ -1,0 +1,101 @@
+MULTIMEDIA · CURSO 2 · MÓDULO 2 · Marco normativo y legal para el manejo de los ecosistemas de guadua y bambú
+Proyecto BID · Primera versión (2026-11-24) · motor v12
+=====================================================================================================
+
+CÓMO ABRIRLO
+- Para probarlo con todo funcionando (videos locales y visor PDF), ábrelo desde un servidor web:
+  súbelo a Moodle/Canvas (como recurso HTML) o ejecuta en esta carpeta:  python -m http.server
+  y entra a http://localhost:8000
+- Con doble clic en index.html también funciona; el PDF se abre con el visor nativo del navegador.
+
+ESTRUCTURA
+  index.html                    Las 63 pantallas (el diseño de ppt-design reproducido en un escenario 1920×1080)
+  css/estilos.css               Animaciones, estados, popups, barra inferior, menú y paneles
+  js/config.js                  ← AQUÍ se cambian sonidos, videos, documentos e imágenes
+  js/app.js                     Navegación, sonidos, locuciones, progreso, popups, tarjetas, preguntas, videos y visor PDF
+  assets/img/diseno/            Imágenes extraídas de ppt-design (personajes, ilustraciones, fondos, logos)
+  assets/img/contenido/         Imágenes de contenido pendientes (cada carpeta trae un LEEME)
+  assets/audio/                 inicio.mp3 · fin.mp3 · cambio-slide.mp3 · popup.mp3 · correcto.mp3 · incorrecto.mp3
+  assets/audio/locuciones/      Una carpeta por pantalla (slide-XX) con titulo.mp3 y popup-<id>.mp3 · GUION.txt
+  videos/slide-XX/              Una carpeta por pantalla con video. Coloca ahí video.mp4 (ver el LEEME de cada carpeta)
+  documentos/                   PDF del módulo (F-TA-28 como material de apoyo; aquí va también el ANEXO 1 de categoría 1)
+  assets/fonts/                 Work Sans (incluida, funciona sin internet)
+  assets/lib/                   pdf.js (visor PDF)
+
+DISEÑO
+  Cada pantalla reproduce la diapositiva de ppt-design en su posición, tamaño, color y tipografía.
+  Los controles (menú, sonido, configuración, avance y los botones Anterior/Siguiente con el estilo
+  del botón "Ver más") están en una barra DEBAJO del diseño, para no tapar personajes ni logos.
+
+ADAPTABLE (RESPONSIVE)
+  El diseño se escala al espacio libre de la pantalla y se apoya sobre la barra (sin franja vacía entre ambos).
+  La barra, el menú lateral, los paneles, los subtítulos y el popup de video/imagen van a tamaño real de pantalla,
+  así se leen bien en portátil, tableta y celular. La barra se compacta por tamaños: en pantallas medianas los
+  botones quedan solo con ícono; en celular Anterior/Siguiente pasan a flechas redondas.
+  En celular vertical aparece un aviso (que se puede cerrar) para girar el dispositivo; no bloquea el contenido.
+  Botón de pantalla completa en la barra (si el navegador lo permite). Con el dedo no quedan efectos hover "pegados".
+  Los controles de los videos dentro del diseño se agrandan en pantallas pequeñas para poder tocarlos.
+
+SONIDO AL INICIAR
+  Los navegadores bloquean el audio hasta el primer clic. Si al cargar la portada el sonido de inicio no puede
+  sonar solo, aparece el botón "Comenzar": al tocarlo suenan el inicio y la locución de la portada.
+
+ANIMACIÓN
+  Al entrar a una pantalla, cada elemento aparece uno tras otro con 0,3 s de retraso, en orden de lectura:
+  módulo, título, personaje, contenido (de arriba abajo y de izquierda a derecha), instrucciones y fuentes.
+  Al interactuar (pestañas, ítems, tarjetas) solo se anima el contenido que entra; los botones no se vuelven a animar.
+
+LOCUCIÓN GENERAL (reproductor dentro del slide)
+  Pantallas 4, 5, 6, 8, 9, 10, 11, 12, 15, 22, 24, 25, 27, 42 y 56: primero suena el título y luego la locución general
+  (notas de ppt-contenidos o el texto del slide cuando las notas piden "locutar por el avatar"). Play/pausa, barra, duración y
+  velocidad 1x/1,5x/2x. Cualquier interacción la pausa y se reanuda al cerrar; si ya terminó no vuelve a sonar sola.
+  Subtítulos con el botón CC. Audios: assets/audio/locuciones/slide-XX/general.mp3.
+
+INTERACCIONES
+  Pantalla 2  · Tabla de contenido: cada ícono lleva a su subsección (normal · hover ámbar · visitado).
+  Pantallas 5, 7, 38, 41, 44 y 45–55 · Se ven los botones/preguntas; cada clic descubre su texto y este se queda.
+               En 41 y 45–55 el avatar locuta la pregunta y su respuesta.
+  Pantalla 6  · Artículo 3°: cada categoría abre su definición en el popup del diseño.
+  Pantalla 8  · "Ver más": ANEXO 1 en el visor PDF (pendiente el archivo). Pantallas 10 y 11 · "Ver más" abre la resolución en la web.
+  Pantalla 14 · Relacionar en 3 columnas: categoría → descripción → entidad de registro (las descripciones se barajan).
+               Un error se marca en rojo; al completar todo sale la retroalimentación con Continuar.
+  Pantalla 16 · Del registro: cada botón abre su artículo en el popup del diseño.
+  Pantallas 17, 25, 26, 29, 57 y 58 · Recuadros de pestañas: cada botón abre su panel debajo de la fila (sin oscurecer el slide);
+               otro botón cambia de panel; el abierto cambia de color y los visitados llevan chulito.
+  Pantalla 18 · Cada "Ver más" abre su artículo a la derecha.
+  Pantalla 19 · Tarjetas que giran (una abierta a la vez); la 01 tiene "Ver más" con el informe técnico de cosecha.
+  Pantalla 31 · Trámite del registro: cada número del flujograma abre su explicación.
+  Pantallas 33–36, 38, 39, 42 y 43 · "Ver más" abre la caja emergente del diseño (con su propio reproductor si es larga).
+  Preguntas (pantallas 13, 20, 21 y 59): 4 opciones en azul neutro, retroalimentación en el mismo slide
+  (acierto → Continuar; error → Reintentar).
+
+SONIDOS
+  inicio (pantalla 1), fin (Felicitaciones), cambio de pantalla, popup abierto, respuesta correcta / incorrecta.
+  Reemplaza los archivos de assets/audio/ por otros con el MISMO nombre.
+
+LOCUCIONES
+  assets/audio/locuciones/slide-XX/titulo.mp3      → se reproduce al entrar a la pantalla
+  assets/audio/locuciones/slide-XX/popup-<id>.mp3  → se reproduce al abrir ese popup, pestaña, tarjeta o ítem
+  Por ahora todas son el audio provisional. GUION.txt lista cada archivo con el texto que debe decir.
+  Los audios reales se hacen con la skill generar-locuciones-bid (voz laura_argel).
+
+VIDEOS
+  Pantalla 3: reproductor propio (reproducir/pausar, ±10 s, 1x · 1,5x · 2x, barra y pantalla completa).
+  Busca videos/slide-03/video.mp4; mientras no esté, muestra "Video pendiente de cargar". Guion en GUION-video.txt.
+
+DOCUMENTOS
+  Formulario F-TA-28 (registro de plantaciones forestales protectoras): botón "Material de apoyo" de la barra inferior.
+  ANEXO 1 (registro de guaduales y bambusales categoría 1): "Ver más" de la pantalla 8 → documentos/ANEXO-1-registro-guaduales-categoria-1.pdf
+
+AVANCE
+  El porcentaje cuenta pantallas visitadas, pestañas, popups, tarjetas, ítems, enlaces, videos, documentos y actividades.
+  Clic en "Avance %" para ver lo que falta, agrupado por pantalla, con enlaces directos.
+  Configuración (engranaje): Recordar estado anterior, Locuciones, Efectos, Subtítulos y Reiniciar avance.
+
+NAVEGACIÓN
+  Botones Anterior/Siguiente, flechas del teclado, deslizar en el celular, menú lateral ☰,
+  o directo a una pantalla con #número en la URL (ej. index.html#12).
+  En la tabla de contenido (pantalla 2) cada tema lleva a su portadilla (pantallas 4, 15 y 23); ahí aparece el botón "Contenido" para volver.
+
+DIFERENCIAS CON EL DISEÑO Y PENDIENTES
+  Ver DISCREPANCIAS.md y PENDIENTES.md en generador-multimedia-bid\cursos\curso2\modulo2.

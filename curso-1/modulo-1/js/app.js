@@ -78,8 +78,12 @@
   let tVoz = null, cues = [];
   const subt = $("subtitulos");
   const rutaLoc = (n, archivo) => `${L.carpeta || "assets/audio/locuciones"}/slide-${dos(n)}/${archivo}`;
-  function trozos(txt, dur) {
-    const frases = (txt || "").replace(/\s+/g, " ").match(/[^.!?¡¿]+[.!?]+|[^.!?]+$/g) || [];
+  // v9: si el audio trae subtítulos anclados a sus pausas (construir.py) y su duración coincide, se usan esos tiempos
+  const SUBS = C.subtitulos || {};
+  function trozos(txt, dur, clave) {
+    const s = clave && SUBS[clave];
+    if (s && Math.abs(s.d - dur) < 0.3) return s.c.map(([ini, fin, texto]) => ({ ini, fin, texto }));
+    const frases = ((txt || "").replace(/\s+/g, " ").replace(/(^|\s)([a-hA-H]|et al|p\. ej)\.(?=\s)/g, "$1$2\u2024").match(/[^.!?]+[.!?]+|[^.!?]+$/g) || []).map((f) => f.replace(/\u2024/g, "."));
     const partes = [];
     frases.forEach((f) => { f = f.trim(); if (!f) return; if (f.length > 120) { const pal = f.split(" "); let a = ""; pal.forEach((w) => { if ((a + " " + w).length > 110) { partes.push(a.trim()); a = w; } else a += " " + w; }); if (a.trim()) partes.push(a.trim()); } else partes.push(f); });
     const totalChars = partes.reduce((s, p) => s + p.length, 0) || 1;
@@ -94,7 +98,8 @@
     const clave = src.split("/").slice(-2).join("/");
     tVoz = setTimeout(() => {
       voz.src = src; voz.currentTime = 0;
-      voz.onloadedmetadata = () => { cues = trozos(textos[clave], voz.duration || 4); };
+      voz.defaultPlaybackRate = voz.playbackRate = (popAbierto && popAbierto._rl) ? vozVel : 1;
+      voz.onloadedmetadata = () => { cues = trozos(textos[clave], voz.duration || 4, clave); };
       const p = voz.play(); if (p && p.catch) p.catch(() => {});
     }, retraso);
   }
@@ -141,7 +146,7 @@
     genSlide = n; gen.src = rutaLoc(n + 1, "general.mp3"); gen.preload = "auto"; gen.load(); gen.playbackRate = genVel;
     pintarRL();
   }
-  gen.addEventListener("loadedmetadata", () => { genCues = trozos(textos[`slide-${dos(genSlide + 1)}/general.mp3`], gen.duration || 4); pintarRL(); });
+  gen.addEventListener("loadedmetadata", () => { genCues = trozos(textos[`slide-${dos(genSlide + 1)}/general.mp3`], gen.duration || 4, `slide-${dos(genSlide + 1)}/general.mp3`); pintarRL(); });
   ["timeupdate", "play", "pause", "ended", "durationchange", "ratechange"].forEach((ev) => gen.addEventListener(ev, () => { pintarRL(); pintarSub(); }));
   function tocarGeneral() {
     if (genSlide !== actual || silencio) return;
@@ -163,11 +168,17 @@
   document.addEventListener("click", (e) => {
     const r = e.target.closest(".repro-loc"); if (!r) return;
     e.stopPropagation();
+    if (r.classList.contains("rl-pop")) {
+      if (e.target.closest(".rl-play")) { if (rlPopPropio() && !voz.paused) voz.pause(); else tocarPop(); }
+      else if (e.target.closest(".rl-vel")) { vozVel = VELS[(VELS.indexOf(vozVel) + 1) % VELS.length]; voz.playbackRate = vozVel; pintarRLPop(); }
+      return;
+    }
     if (e.target.closest(".rl-play")) { if (gen.paused) tocarGeneral(); else { gen.pause(); genInterrumpida = false; } }
     else if (e.target.closest(".rl-vel")) { genVel = VELS[(VELS.indexOf(genVel) + 1) % VELS.length]; gen.playbackRate = genVel; pintarRL(); }
   });
   document.addEventListener("input", (e) => {
     const b = e.target.closest(".repro-loc .rl-barra"); if (!b) return;
+    if (b.closest(".rl-pop")) { if (!rlPopPropio() || !isFinite(voz.duration)) return; voz.currentTime = (b.value / 1000) * voz.duration; pintarRLPop(); pintarSub(); return; }
     const d = isFinite(gen.duration) ? gen.duration : 0; if (!d) return;
     gen.currentTime = (b.value / 1000) * d; pintarRL(); pintarSub();
   });
@@ -266,6 +277,7 @@
     let destino = null, cls = "hover";
     if (b.dataset.objetivo || b.dataset.colorea) { cls = b.classList.contains("op") ? "op-hover" : "hover"; }
     else { destino = elementoBajo(b); cls = "hover-lift"; if (destino) destino.classList.add("lift"); else return; }
+    b.classList.add("con-over");   // tiene estado over propio: al enfocarlo con teclado se ve ese estado, sin aro
     const o = () => destino || document.getElementById(b.dataset.objetivo || b.dataset.colorea);
     const bloqueado = () => !!b.closest(".slide").querySelector(".quiz.resuelta, .relaciona.x");
     b.addEventListener("pointerenter", (e) => { if (e.pointerType !== "mouse" && e.pointerType !== "pen") return; const t = o(); if (t && !bloqueado()) t.classList.add(cls); });
@@ -273,6 +285,85 @@
     b.addEventListener("focus", () => { if (!b.matches(":focus-visible")) return; const t = o(); if (t) t.classList.add(cls); });
     b.addEventListener("blur", () => { const t = o(); if (t) t.classList.remove(cls); });
     b.addEventListener("click", () => { const t = o(); if (t && cls === "hover-lift") t.classList.remove(cls); });
+  });
+
+  // la X de los popups del diseño: su "over" es levantar la X dibujada (sin aro)
+  document.querySelectorAll(".dpop .hot.cerrar").forEach((b) => {
+    const p = b.closest(".dpop"), cx = parseFloat(b.style.left) + parseFloat(b.style.width) / 2, cy = parseFloat(b.style.top) + parseFloat(b.style.height) / 2;
+    let x = null;
+    p.querySelectorAll(".el").forEach((el) => { const e = cajaDe(el); if (isFinite(e.w) && e.w < 200 && cx >= e.x && cx <= e.x + e.w && cy >= e.y && cy <= e.y + e.h) x = el; });
+    if (!x) return;
+    x.classList.add("lift"); b.classList.add("con-over");
+    const on = () => x.classList.add("hover-lift"), off = () => x.classList.remove("hover-lift");
+    b.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse" || e.pointerType === "pen") on(); });
+    b.addEventListener("pointerleave", off);
+    b.addEventListener("focus", () => { if (b.matches(":focus-visible")) on(); });
+    b.addEventListener("blur", off); b.addEventListener("click", off);
+  });
+
+  /* =================== Teclado (v9): foco, botones compuestos y orden =================== */
+  // Botones compuestos: varios hotspots del mismo slide que hacen lo mismo (p. ej. ícono + texto de un menú)
+  // forman UN solo grupo: un único foco con el tabulador y, si no tienen estado over propio, un solo marco alrededor de todo.
+  const ACCION = ["ir", "pop", "estado", "doc", "imgPop", "videoPop", "flip", "revela", "objetivo"];
+  slides.forEach((s) => {
+    const grupos = {};
+    s.querySelectorAll(".hot").forEach((b) => {
+      if (b.closest(".dpop") || b.classList.contains("op") || b.classList.contains("cerrar") || b.classList.contains("rel")) return;
+      const k = ACCION.map((a) => b.dataset[a] || "").join("|");
+      if (!k.replace(/\|/g, "")) return;
+      (grupos[k] = grupos[k] || []).push(b);
+    });
+    Object.values(grupos).forEach((g) => {
+      if (g.length < 2) return;
+      const lider = g[0];
+      lider.classList.add("grupo-lider");
+      g.slice(1).forEach((b) => { b.tabIndex = -1; b.setAttribute("aria-hidden", "true"); b.classList.add("grupo-miembro"); b._lider = lider; });
+      if (lider.classList.contains("con-over")) return;
+      const px = (b, p) => parseFloat(b.style[p]) || 0;
+      const x0 = Math.min(...g.map((b) => px(b, "left"))), y0 = Math.min(...g.map((b) => px(b, "top")));
+      const x1 = Math.max(...g.map((b) => px(b, "left") + px(b, "width"))), y1 = Math.max(...g.map((b) => px(b, "top") + px(b, "height")));
+      const marco = document.createElement("div");
+      marco.className = "marco-grupo"; marco.setAttribute("aria-hidden", "true");
+      marco.style.cssText = `left:${x0 - 6}px;top:${y0 - 6}px;width:${x1 - x0 + 12}px;height:${y1 - y0 + 12}px`;
+      lider.parentNode.insertBefore(marco, lider);
+      lider.classList.add("con-marco");
+      lider.addEventListener("focus", () => { if (lider.matches(":focus-visible")) marco.classList.add("ver"); });
+      lider.addEventListener("blur", () => marco.classList.remove("ver"));
+    });
+  });
+  // ¿se está usando el teclado? (para devolver el foco visible al cerrar popups y paneles)
+  let teclado = false;
+  document.addEventListener("keydown", (e) => { if (["Tab", "Enter", " ", "Escape"].includes(e.key) || e.key.startsWith("Arrow")) teclado = true; }, true);
+  document.addEventListener("pointerdown", () => { teclado = false; }, true);
+  // Continuar / Reintentar de las retroalimentaciones son formas del diseño: se vuelven botones para el teclado
+  document.querySelectorAll(".dpop [data-continuar], .dpop [data-reintentar]").forEach((b) => {
+    b.tabIndex = 0; b.setAttribute("role", "button");
+    b.setAttribute("aria-label", b.hasAttribute("data-continuar") ? "Continuar" : "Reintentar");
+    b.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); b.click(); } });
+  });
+  // el foco no se escapa de un popup, del menú lateral ni del visor mientras están abiertos (Tab y Mayús+Tab dan la vuelta)
+  function enfocables(c) {
+    return [...c.querySelectorAll("button, a[href], input, select, textarea, [tabindex]")].filter((x) => x.tabIndex >= 0 && !x.disabled && !x.hidden && !x.closest("[hidden]") && x.getClientRects().length && getComputedStyle(x).visibility !== "hidden");
+  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+    let c = null;
+    if ($("visor").classList.contains("abierto")) c = $("visor");
+    else if (popAbierto && !popAbierto.classList.contains("sin-velo")) c = popAbierto;
+    else if (repro.classList.contains("menu-abierto")) c = $("menuLateral");
+    if (!c) {
+      // sin nada abierto: el recorrido da la vuelta dentro del multimedia (slide actual → barra → slide actual)
+      const f = enfocables(document.body).filter((x) => !x.closest(".slide") || x.closest(".slide") === slides[actual]);
+      if (!f.length) return;
+      const i = f.indexOf(document.activeElement);
+      if (!e.shiftKey && (i === f.length - 1 || i === -1)) { e.preventDefault(); f[0].focus(); }
+      else if (e.shiftKey && (i === 0 || i === -1)) { e.preventDefault(); f[f.length - 1].focus(); }
+      return;
+    }
+    const f = enfocables(c); if (!f.length) { e.preventDefault(); return; }
+    const i = f.indexOf(document.activeElement);
+    if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+    else if (!e.shiftKey && (i === -1 || i === f.length - 1)) { e.preventDefault(); f[0].focus(); }
   });
 
   /* =================== Estados (pestañas / menús interactivos) =================== */
@@ -327,6 +418,9 @@
     cerrarPop(true);
     focoPrevio = origen || document.activeElement;
     p.classList.add("abierto"); popAbierto = p;
+    if (p._rl) { ubicarRLPop(p); pintarRLPop(); }
+    const obj = origen && origen.dataset && origen.dataset.objetivo && document.getElementById(origen.dataset.objetivo);
+    if (obj) { obj.classList.add("pop-activo"); p._activo = obj; }
     sonar("popup");
     const s = p.closest(".slide");
     if (conVoz && s) hablar(rutaLoc(slideDe(p), `${id.replace(/^pop-/, "popup-")}.mp3`), 380);
@@ -336,11 +430,12 @@
     if (!popAbierto) return;
     const p = popAbierto; popAbierto = null;
     p.classList.remove("abierto");
+    if (p._activo) { p._activo.classList.remove("pop-activo"); p._activo = null; }
     p.querySelectorAll("video").forEach((v) => v.pause());
     if (!silencioso) callar();
     if (p.id === "popGen") setTimeout(() => { if (!p.classList.contains("abierto")) $("genCuerpo").innerHTML = ""; }, 300);
     if (p._alCerrar) { const f = p._alCerrar; p._alCerrar = null; f(); }
-    if (focoPrevio && focoPrevio.focus) focoPrevio.focus({ preventScroll: true, focusVisible: false });
+    if (focoPrevio && focoPrevio.focus && focoPrevio.isConnected) { const f = focoPrevio.classList && focoPrevio.classList.contains("grupo-miembro") && focoPrevio._lider ? focoPrevio._lider : focoPrevio; f.focus({ preventScroll: true, focusVisible: teclado }); }
     if (!silencioso) reanudarGeneral();
   }
   document.addEventListener("click", (e) => {
@@ -353,6 +448,69 @@
     abrirPop(id, b); marcar(b.dataset.clave);
     if (b.dataset.colorea) p._alCerrar = () => { const c = document.getElementById(b.dataset.colorea); if (c) c.classList.add("visto"); };
   }));
+  /* =================== Reproductor en popups (v9) ===================
+     Todo popup cuya locución tenga 200 caracteres o más lleva su propio reproductor (play/pausa, barra para devolver o
+     adelantar, duración y 1x/1,5x/2x). Al abrir el popup la locución arranca desde el comienzo. Posición: data-rl="x,y"
+     en el popup; si no, arriba a la derecha dentro de la caja principal del popup. */
+  const RL_MIN = C.reproductorPopupMin ?? 200;
+  let vozVel = 1;
+  const RL_SVG = '<svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>' +
+    '<svg class="i-pausa" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>' +
+    '<svg class="i-otra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4.5h4.5"/></svg>';
+  document.querySelectorAll(".slide .dpop[id^='pop-']").forEach((p) => {
+    const archivo = p.id.replace(/^pop-/, "popup-") + ".mp3", clave = `slide-${dos(slideDe(p))}/${archivo}`;
+    if ((textos[clave] || "").trim().length < RL_MIN || p.querySelector(".repro-loc")) return;
+    const r = document.createElement("div");
+    r.className = "repro-loc rl-pop"; r.setAttribute("role", "group"); r.setAttribute("aria-label", "Locución del popup");
+    r.innerHTML = `<button class="rl-play" type="button" aria-label="Reproducir locución">${RL_SVG}</button>` +
+      '<div class="rl-cuerpo"><div class="rl-fila"><span class="rl-tit">Locución</span><span class="rl-tiempo">0:00 / 0:00</span></div>' +
+      '<input class="rl-barra" type="range" min="0" max="1000" step="1" value="0" aria-label="Posición de la locución"></div>' +
+      '<button class="rl-vel" type="button" aria-label="Velocidad de la locución" title="Velocidad">1x</button>';
+    (p.querySelector(".dpop-capa") || p).append(r);   // después de la X: al abrir, Tab pasa de la X al reproductor
+    p._rl = r; p._clave = clave; p._archivo = archivo;
+  });
+  function ubicarRLPop(p) {
+    const r = p._rl; if (!r || r._ubicado) return;
+    if (p.dataset.rl) {   // data-rl="x,y" (esquina sup. izq.) o "x,y,br|bl|tr|tl" (x,y es esa esquina: en pantallas chicas crece hacia adentro)
+      const [xs, ys, an] = p.dataset.rl.split(","), x = +xs, y = +ys, a = (an || "tl").trim();
+      r.style.left = (a[1] === "r" ? x - 440 : x) + "px";
+      if (a[0] === "b") { r.style.top = "auto"; r.style.bottom = `calc(100% - ${y}px)`; } else r.style.top = y + "px";
+      r.style.transformOrigin = `${a[1] === "r" ? "100%" : "0"} ${a[0] === "b" ? "100%" : "0"}`;
+    }
+    else {
+      let caja = null, area = 0;
+      p.querySelectorAll(".dpop-capa > .el, .dpop-capa > .bpop, .bpop").forEach((e) => { const a = e.offsetWidth * e.offsetHeight; if (a > area && e.offsetWidth < 1880) { area = a; caja = e; } });
+      const x = caja ? caja.offsetLeft + caja.offsetWidth - 28 : 1880, y = caja ? caja.offsetTop + 24 : 40;
+      r.style.left = (x - 440) + "px"; r.style.top = y + "px"; r.style.transformOrigin = "100% 0";
+    }
+    r._ubicado = true;
+  }
+  const rlPopPropio = () => !!(popAbierto && popAbierto._rl && voz.src && voz.src.endsWith("/" + popAbierto._clave));
+  function pintarRLPop() {
+    const p = popAbierto, r = p && p._rl; if (!r) return;
+    const propio = rlPopPropio(), d = propio && isFinite(voz.duration) ? voz.duration : 0, t = propio ? voz.currentTime || 0 : 0;
+    r.classList.toggle("sonando", propio && !voz.paused);
+    r.classList.toggle("terminada", propio && (voz.ended || (d > 0 && t >= d - 0.05)));
+    const b = r.querySelector(".rl-barra"); if (!b._arrastrando) b.value = d ? Math.round((t / d) * 1000) : 0;
+    r.style.setProperty("--p", d ? ((t / d) * 100).toFixed(2) + "%" : "0%");
+    r.querySelector(".rl-tiempo").textContent = fmtT(t) + " / " + fmtT(d);
+    r.querySelector(".rl-vel").textContent = String(vozVel).replace(".", ",") + "x";
+    r.querySelector(".rl-play").setAttribute("aria-label", propio && !voz.paused ? "Pausar locución" : "Reproducir locución");
+  }
+  ["timeupdate", "play", "pause", "ended", "durationchange", "ratechange", "loadedmetadata", "emptied"].forEach((ev) => voz.addEventListener(ev, pintarRLPop));
+  function tocarPop() {
+    const p = popAbierto; if (!p || !p._rl || silencio) return;
+    if (!rlPopPropio()) {   // p. ej. con las locuciones desactivadas: el reproductor la carga a pedido
+      callar(); pausarGeneral(true);
+      voz.src = rutaLoc(slideDe(p), p._archivo); voz.currentTime = 0;
+      voz.onloadedmetadata = () => { cues = trozos(textos[p._clave], voz.duration || 4, p._clave); };
+    } else {
+      if (voz.ended || (isFinite(voz.duration) && voz.currentTime >= voz.duration - 0.05)) voz.currentTime = 0;
+      if (!cues.length && isFinite(voz.duration)) cues = trozos(textos[p._clave], voz.duration, p._clave);
+    }
+    voz.playbackRate = vozVel;
+    const pr = voz.play(); if (pr && pr.catch) pr.catch(() => {});
+  }
   function aplicarColoreados(s) {
     s.querySelectorAll("[data-colorea]").forEach((b) => { const c = document.getElementById(b.dataset.colorea); if (c) c.classList.toggle("visto", vistos.has(b.dataset.clave)); });
   }
@@ -506,6 +664,7 @@
     hablar(rutaLoc(slideDe(b), `popup-r-${k}.mp3`), 250);
   }));
   document.querySelectorAll("[data-revela]").forEach((b) => {
+    if (b.closest(".slide").querySelector(".selector")) b.classList.add("con-over");
     const sel = () => b.closest(".slide").querySelector(".selector");
     const mover = () => { const t = sel(); if (!t) return; t.style.left = (parseFloat(b.style.left) + 76 - 76.5) + "px"; t.style.top = (parseFloat(b.style.top) + 76 - 76.5) + "px"; };
     b.addEventListener("pointerenter", (e) => { if (e.pointerType !== "mouse" && e.pointerType !== "pen") return; const t = sel(); if (!t) return; if (!t.classList.contains("ver")) { t.style.transition = "none"; mover(); void t.offsetWidth; t.style.transition = ""; } else mover(); t.classList.add("ver"); });
@@ -561,7 +720,23 @@
       g.style.top = (parseFloat(g.style.top) + dy) + "px";
     });
     s.querySelectorAll("[data-rel-izq],[data-rel-der]").forEach((b) => { b.classList.remove("hecho"); const g = document.getElementById(b.dataset.objetivo); g.classList.remove("rel-ok", "rel-sel", "rel-mal"); });
-    r._sel = null;
+    r._sel = null; contarRel(s);
+  }
+  // v10: contador "N conceptos relacionados" (si el slide trae .rel-contador). Un error lo devuelve a 0 y suelta las parejas.
+  function contarRel(s, efecto) {
+    const c = s.querySelector(".rel-contador"); if (!c) return;
+    const n = s.querySelectorAll("[data-rel-izq].hecho").length, total = s.querySelectorAll("[data-rel-izq]").length;
+    c.querySelector(".rel-n").textContent = n;
+    c.querySelector(".rel-t").textContent = n === 1 ? "concepto relacionado" : "conceptos relacionados";
+    c.setAttribute("aria-label", `${n} de ${total} conceptos relacionados`);
+    c.classList.toggle("completo", n === total);
+    c.classList.remove("sube", "cero"); void c.offsetWidth;
+    if (efecto) c.classList.add(efecto);
+  }
+  function soltarRel(s) {
+    const r = s.querySelector(".relaciona");
+    s.querySelectorAll("[data-rel-izq],[data-rel-der]").forEach((b) => { b.classList.remove("hecho"); const g = document.getElementById(b.dataset.objetivo); g.classList.remove("rel-ok", "rel-sel"); });
+    if (r) r._sel = null; contarRel(s, "cero");
   }
   document.querySelectorAll("[data-rel-izq],[data-rel-der]").forEach((b) => b.addEventListener("click", () => {
     const s = b.closest(".slide"), r = s.querySelector(".relaciona");
@@ -574,14 +749,15 @@
     const gi = document.getElementById(r._sel.dataset.objetivo);
     if (r._sel.dataset.relIzq === b.dataset.relDer) {
       gi.classList.remove("rel-sel"); gi.classList.add("rel-ok"); g.classList.add("rel-ok");
-      r._sel.classList.add("hecho"); b.classList.add("hecho"); r._sel = null; sonar("correcto");
+      r._sel.classList.add("hecho"); b.classList.add("hecho"); r._sel = null; sonar("correcto"); contarRel(s, "sube");
       if (s.querySelectorAll(".hot.rel.hecho").length === s.querySelectorAll(".hot.rel").length) {
         marcar("q:" + r.dataset.pregunta);
         setTimeout(() => abrirPop("pop-retro-relaciona", b), 700);
       }
     } else {
       g.classList.remove("rel-mal"); void g.offsetWidth; g.classList.add("rel-mal"); sonar("incorrecto");
-      setTimeout(() => g.classList.remove("rel-mal"), 700);
+      gi.classList.add("rel-mal");
+      setTimeout(() => { g.classList.remove("rel-mal"); gi.classList.remove("rel-mal"); if (s.querySelector(".rel-contador")) soltarRel(s); }, 700);
     }
   }));
 
@@ -624,10 +800,13 @@
   function abrirMenu(abrir) {
     const v = abrir ?? !repro.classList.contains("menu-abierto");
     if (v) cerrarPaneles();
+    const estaba = repro.classList.contains("menu-abierto");
     repro.classList.toggle("menu-abierto", v);
-    btnMenu.setAttribute("aria-expanded", v); $("menuLateral").setAttribute("aria-hidden", !v);
+    btnMenu.setAttribute("aria-expanded", v); $("menuLateral").setAttribute("aria-hidden", !v); $("menuLateral").inert = !v;
+    if (!v && estaba && $("menuLateral").contains(document.activeElement)) btnMenu.focus({ preventScroll: true, focusVisible: teclado });
     if (v) setTimeout(() => { const b = lista.querySelector("li.actual button"); if (b) { b.focus({ preventScroll: true }); b.scrollIntoView({ block: "center" }); } }, 60);
   }
+  $("menuLateral").inert = true;   // cerrado: fuera del recorrido del tabulador
   btnMenu.addEventListener("click", () => abrirMenu());
   $("velo").addEventListener("click", () => abrirMenu(false));
   lista.addEventListener("click", (e) => { const b = e.target.closest("[data-ir-menu]"); if (b) { irA(+b.dataset.irMenu); abrirMenu(false); } });
@@ -736,7 +915,7 @@
   document.addEventListener("keydown", (e) => {
     if (visor.classList.contains("abierto")) { if (e.key === "Escape") cerrarVisor(); return; }
     if (popAbierto) { if (e.key === "Escape") cerrarPop(); return; }
-    if (e.key === "Escape") { if (!$("panelConfig").hidden || !$("panelPend").hidden) { cerrarPaneles(); return; } if (repro.classList.contains("menu-abierto")) { abrirMenu(false); return; } }
+    if (e.key === "Escape") { if (!$("panelConfig").hidden || !$("panelPend").hidden) { const b = !$("panelConfig").hidden ? $("btnConfig") : $("pct"); cerrarPaneles(); b.focus({ preventScroll: true }); return; } if (repro.classList.contains("menu-abierto")) { abrirMenu(false); return; } }
     if (e.target.closest && e.target.closest(".menu-lateral, .panel-flot, input, .vbox, .repro-loc")) return;
     if (e.key === "ArrowRight" || e.key === "PageDown") irA(actual + 1);
     if (e.key === "ArrowLeft" || e.key === "PageUp") irA(actual - 1);

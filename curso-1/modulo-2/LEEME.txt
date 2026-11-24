@@ -1,0 +1,64 @@
+MULTIMEDIA · CURSO 1 · MÓDULO 2 · Instrumentos para la compra y consumo responsable de productos forestales maderables
+Proyecto BID · Primera versión (2026-11-24) · motor v13
+=====================================================================================================
+
+CÓMO ABRIRLO
+- Para probarlo con todo funcionando (videos locales y visor PDF), ábrelo desde un servidor web:
+  súbelo a Moodle/Canvas (como recurso HTML) o ejecuta en esta carpeta:  python -m http.server
+  y entra a http://localhost:8000
+- Con doble clic en index.html también funciona; el PDF se abre con el visor nativo del navegador.
+
+ESTRUCTURA
+  index.html                    Las 34 pantallas (el diseño de ppt-design reproducido en un escenario 1920×1080)
+  css/estilos.css               Animaciones, estados, popups, barra inferior, menú y paneles
+  js/config.js                  ← AQUÍ se cambian sonidos, videos, documentos e imágenes
+  js/app.js                     Navegación, sonidos, locuciones, progreso, popups, preguntas, relaciona, completa la frase, videos
+  assets/img/diseno/            Imágenes extraídas de ppt-design
+  assets/audio/                 inicio.mp3 · fin.mp3 · cambio-slide.mp3 · popup.mp3 · correcto.mp3 · incorrecto.mp3
+  assets/audio/locuciones/      Una carpeta por pantalla (slide-XX) con titulo.mp3 y popup-<id>.mp3 · GUION.txt · guion.json
+  videos/slide-XX/              Una carpeta por pantalla con video. Coloca ahí video.mp4 (ver el LEEME de cada carpeta)
+  documentos/                   Guía de compra y consumo responsable de madera en Colombia (material de apoyo)
+
+DISEÑO
+  Cada pantalla reproduce la diapositiva de ppt-design en su posición, tamaño, color y tipografía; los textos son los de
+  ppt-contenidos. Botones Anterior/Siguiente con el estilo del botón "Ver más" del diseño.
+
+LOCUCIONES
+  titulo.mp3 = solo el título del slide · popup-<id>.mp3 = cada elemento interactivo. Los popups con notas de hasta 400
+  caracteres locutan las notas completas; los de más de 400 locutan solo su título (regla del motor v14, para ahorrar créditos
+  de ElevenLabs) y no llevan reproductor. Los años de las líneas de tiempo (pantallas 7–9) y los recursos de la pantalla 10
+  locutan solo su título. Sin locución general en este módulo
+  (ninguna nota de ppt-contenidos pide "locutar"). Por ahora todas son el audio provisional; los reales se hacen con la skill
+  generar-locuciones-bid (voz laura_argel). Las citas (Autor, año) no se locutan.
+
+INTERACCIONES
+  Pantalla 2  · Tabla de contenido: cada ícono lleva a su sección (normativos → 5, técnicos → 20, de mercado → 21).
+  Pantalla 4  · Resumen del módulo anterior: al entrar se ve la introducción; cada número (1, 2, 3) muestra su recurso forestal.
+  Pantalla 5  · Video introductorio (GIZ) con reproductor propio.
+  Pantalla 6  · Cada actividad (columna izquierda) descubre los recursos que se pueden obtener, con su conector (textos
+               centrados en su recuadro).
+  Pantallas 7, 8 y 9 · Líneas de tiempo: cada recuadro abre la nota de su año (8 = c10, armada con el diseño de d10).
+  Pantalla 10 · Cada recurso con nota abre su popup (la manito va a la derecha de cada rótulo).
+  Pantalla 11 · Cada botón descubre el texto que tiene al frente (filas parejas, cada texto centrado frente a su botón);
+               "Ver más" (arriba del logo del ICA) abre la nota del registro ante el ICA.
+  Pantallas 12, 13, 14 y 28 · Preguntas: opciones en azul neutro; acierto → "Muy bien." y Continuar; error → Reintentar.
+  Pantallas 15, 16, 23, 25 y 26 · "Ver más" con las notas de ppt-contenidos.
+  Pantalla 17 · Los tres "+" abren las definiciones (productos maderables, transformación primaria y secundaria).
+  Pantallas 19 y 29 · Relacionar (la columna derecha se baraja) con subtítulo en cada columna (Productos forestales /
+               Documentos; Descripciones / Instrumentos) y contador de aciertos abajo: sube con cada pareja correcta, vuelve a 0
+               con un error y al completar queda en el total; luego retroalimentación y Continuar.
+  Pantalla 20 · Instrumentos técnicos: 1 fichas, 2 guía, 3 NSR-10 (al entrar solo se ven los tres números). Logo del Pacto, portada de la guía y
+               título G abren su documento en la web; "Conoce más" abre el video de la guía; cada "Ver más" sus notas.
+  Pantalla 21 · FSC: "Conoce más" con las notas; el logo abre fsc.org.
+  Pantalla 22 · "Conoce más" con el FSC en Colombia (fuente con enlace a la búsqueda de FSC).
+  Pantalla 23 · "Conoce más" y la imagen del esquema abren el video del webinar.
+  Pantallas 24 y 27 · Mapas de beneficios: flechas de cada beneficio hacia el centro (según ppt-contenidos).
+  Pantalla 26 · Tabla estándar del proyecto; cada categoría unida con su resultado.
+  Pantalla 30 · Completa la frase: toca los fragmentos en orden (van al primer espacio libre; tocar un espacio lo devuelve);
+               con los cuatro se califica.
+
+SONIDOS · AVANCE · NAVEGACIÓN
+  Igual que los demás módulos del proyecto (ver LEEME de curso1/modulo1). Clave de progreso: bid-curso1-modulo2-progreso.
+
+DIFERENCIAS CON EL DISEÑO Y PENDIENTES
+  Ver DISCREPANCIAS.md y PENDIENTES.md en generador-multimedia-bid\cursos\curso1\modulo2.

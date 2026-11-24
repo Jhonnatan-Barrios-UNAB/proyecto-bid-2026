@@ -1,5 +1,5 @@
 GUION DE LOCUCIONES · Curso 2 · Módulo 1 (proyecto BID)
-Audios reales: 0 de 90 (detalle en registro-locuciones.json; los demás tienen el audio provisional).
+Audios reales: 90 de 90 (detalle en registro-locuciones.json; los demás tienen el audio provisional).
 Se generan con la skill generar-locuciones-bid (voz laura_argel). titulo.mp3 = título del slide; general.mp3 = locución general
 (suena después del título, con su reproductor en el slide); popup-*.mp3 = cada elemento interactivo.
 Los subtítulos (CC) se generan con el texto de este guion y se reparten según la duración del audio.
@@ -89,7 +89,7 @@ slide-22/titulo.mp3  →  Pon a prueba tus conocimientos. ¡Selecciona la respue
 slide-22/popup-q29-ok.mp3  →  ¡Acertaste! Estás construyendo muy bien tu aprendizaje. Esta afirmación es falsa porque ignora el concepto de aprovechamiento integral de la planta, donde absolutamente todos sus componentes (órganos), y no solo el culmo, generan productos de alto valor. Desde una perspectiva biológica e industrial, el rizoma (raíz) se extrae y transforma en piezas artesanales de alta calidad, esculturas y mangos de herramientas debido a su alta densidad leñosa, mientras que las hojas se aprovechan en la industria farmacéutica y cosmética para la extracción de silicio orgánico, antioxidantes y la elaboración de tés medicinales. 
 Adicionalmente, las ramas delgadas se procesan para fabricar pulpa de papel, carbón activo y biochar para el mejoramiento de suelos, e incluso los rebrotes tiernos o "renuevos" de varias especies de bambú (y ensayos con guadua) se cosechan para el consumo humano en la industria alimentaria, gracias a su alto contenido de fibra.
 slide-22/popup-q29-mal.mp3  →  Es incorrecto, puedes intentarlo de nuevo.
-slide-23/titulo.mp3  →  Subsección 4: sistemas productivos y de restauración sostenible
+slide-23/titulo.mp3  →  Subsección 4: implementación de sistemas productivos y de restauración sostenible con especies de guadua y bambú en contextos locales
 slide-23/general.mp3  →  Hasta este punto has conocido las características biológicas de la guadua y el bambú, sus estadios de desarrollo y las posibilidades de aprovechamiento de sus diferentes partes. Ahora es momento de comprender cómo este conocimiento se lleva a la práctica mediante la implementación de sistemas productivos y de restauración sostenible en contextos locales. En esta subsección explorarás los principios, criterios y estrategias para establecer y manejar plantaciones, así como acciones de restauración que contribuyan a la conservación de los ecosistemas, al fortalecimiento de las economías locales y al uso sostenible de estos valiosos recursos naturales.
 slide-24/titulo.mp3  →  Sistemas productivos
 slide-24/general.mp3  →  La implementación de especies de guadua y bambú en contextos locales puede realizarse de múltiples maneras, dependiendo de las características biofísicas del territorio, las necesidades de las comunidades y los objetivos de manejo que se busquen alcanzar. Más que modelos únicos, se trata de soluciones flexibles capaces de integrar producción, restauración y sostenibilidad.
@@ -97,6 +97,8 @@ slide-25/titulo.mp3  →  Sistemas productivos: arreglos silvopastoriles
 slide-26/titulo.mp3  →  Sistemas productivos: sistemas agroforestales
 slide-26/general.mp3  →  Un sistema agroforestal, donde cultivos agrícolas como café, cacao, plátano u otras especies pueden integrarse con bambú o guadua. 
 Estos arreglos permiten diversificar la producción, mejorar las condiciones microclimáticas del sistema, favorecer la conservación del suelo y generar oportunidades futuras de aprovechamiento de productos derivados del bambú. Además, aumentan la resiliencia productiva frente a variaciones climáticas y económicas.
+Finalmente, hacia la parte derecha observamos un sistema multipropósito comunitario, en el cual la guadua y el bambú se articulan con viveros, procesos de transformación artesanal y usos locales del material vegetal. Este tipo de iniciativas puede fortalecer capacidades comunitarias, promover el uso sostenible de la biodiversidad y generar alternativas económicas vinculadas a la construcción, artesanías, restauración ecológica y producción local.
+En conjunto, estos ejemplos muestran que la implementación de sistemas con guadua y bambú no responde a un modelo estandarizado. Su éxito depende de reconocer las condiciones ecológicas del territorio, los conocimientos locales y las necesidades de quienes habitan el paisaje.
 slide-27/titulo.mp3  →  Sistemas productivos: sistemas multipropósito comunitarios
 slide-27/general.mp3  →  Estos tres ejemplos muestran que la implementación de sistemas con guadua y bambú no responde a un modelo estandarizado. Su éxito depende del reconocimiento de las condiciones ecológicas del territorio, de los conocimientos locales y de las necesidades de quienes habitan el paisaje.
 slide-28/titulo.mp3  →  Sistemas de restauración

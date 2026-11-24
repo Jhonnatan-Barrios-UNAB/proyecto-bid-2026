@@ -1,0 +1,3 @@
+Pantalla 3 · Video inicial
+Coloque aquí el video con el nombre: video.mp4
+Video de bienvenida (avatar). Guion: ver videos/slide-03/GUION-video.txt
