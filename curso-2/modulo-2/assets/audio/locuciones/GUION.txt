@@ -1,5 +1,5 @@
 GUION DE LOCUCIONES · Curso 2 · Módulo 2 (proyecto BID)
-Audios reales: 0 de 198 (detalle en registro-locuciones.json; los demás tienen el audio provisional).
+Audios reales: 197 de 197 (detalle en registro-locuciones.json; los demás tienen el audio provisional).
 Se generan con la skill generar-locuciones-bid (voz laura_argel). titulo.mp3 = título del slide; general.mp3 = locución general
 (suena después del título, con su reproductor en el slide); popup-*.mp3 = cada elemento interactivo.
 Los subtítulos (CC) se generan con el texto de este guion y se reparten según la duración del audio.
@@ -61,10 +61,10 @@ slide-14/titulo.mp3  →  Pon a prueba tus conocimientos. Relaciona cada categor
 slide-14/popup-retro-relaciona.mp3  →  ¡Acertaste! Estás construyendo muy bien tu aprendizaje.
 slide-15/titulo.mp3  →  Subsección 2: Decreto 1532 de 2019, compilado en el Decreto 1076 de 2015: requisitos y procedimientos para el registro de guaduales y bambusales categoría 2
 slide-15/general.mp3  →  Para profundizar en las disposiciones sobre el registro de guaduales y bambusales de categoría 2, se detallan los aspectos relacionados con este procedimiento.
-slide-16/titulo.mp3  →  Decreto 1532 de 2019: del registro
+slide-16/titulo.mp3  →  Decreto 1532 de 2019, compilado en el Decreto 1076 de 2015.
 slide-16/popup-articulo-1.mp3  →  Ámbito de aplicación.
-slide-16/popup-articulo-2.mp3  →  Artículo 2.2.1.1.12.2. Del registro.
-slide-16/popup-articulo-3.mp3  →  Artículo 2.2.1.1.12.3. Requisitos para el registro.
+slide-16/popup-articulo-2.mp3  →  Del registro.
+slide-16/popup-articulo-3.mp3  →  Requisitos para el registro.
 slide-17/titulo.mp3  →  Artículo 2.2.1.1.12.4. Formación del registro
 slide-17/popup-tab-18-1.mp3  →  Formulario de solicitud de registro.
 slide-17/popup-tab-18-2.mp3  →  Mapa de localización.
@@ -72,10 +72,10 @@ slide-17/popup-tab-18-3.mp3  →  Acreditar la propiedad del predio.
 slide-17/popup-tab-18-4.mp3  →  Revisión de la información.
 slide-17/popup-tab-18-5.mp3  →  Finalización del proceso.
 slide-18/titulo.mp3  →  Decreto 1532 de 2019: periodicidad, actualización, costo y cancelación del registro
-slide-18/popup-articulo19-1.mp3  →  Artículo 2.2.1.1.12.5. Periodicidad del registro.
-slide-18/popup-articulo19-2.mp3  →  Artículo 2.2.1.1.12.6. Actualización del registro.
-slide-18/popup-articulo19-3.mp3  →  Artículo 2.2.1.1.12.7. Costo del registro.
-slide-18/popup-articulo19-4.mp3  →  Artículo 2.2.1.1.12.8. Cancelación del registro.
+slide-18/popup-articulo19-1.mp3  →  Periodicidad del registro.
+slide-18/popup-articulo19-2.mp3  →  Actualización del registro.
+slide-18/popup-articulo19-3.mp3  →  Costo del registro.
+slide-18/popup-articulo19-4.mp3  →  Cancelación del registro.
 slide-19/titulo.mp3  →  Decreto 1532 de 2019: cosecha, comercialización, movilización, reporte y restricciones
 slide-19/popup-decreto-1.mp3  →  Cosecha/Aprovechamiento. Para aprovechar las plantaciones forestales protectoras-productoras y protectoras no se requerirá de permiso o autorización.
 slide-19/popup-decreto-2.mp3  →  Comercialización. “Los productos forestales maderables y no maderables obtenidos del aprovechamiento de plantaciones forestales, barreras rompevientos o cercas vivas, así como de árboles de sombrío, árboles frutales y árboles aislados, podrán comercializarse”.
@@ -117,7 +117,7 @@ La diferencia entre los estudios responde a las características y condiciones d
 slide-28/titulo.mp3  →  ¿Sabías qué? Definiciones clave
 slide-29/titulo.mp3  →  Resolución 1740 de 2016: solicitud de aprovechamiento de guadua y/o bambusal
 slide-29/popup-tab-33-1.mp3  →  1. Solicitud escrita.
-slide-29/popup-tab-33-2.mp3  →  2. Acreditar la calidad de tenencia.
+slide-29/popup-tab-33-2.mp3  →  2. Acreditar la calidad de tenencia del propietario del predio.
 slide-29/popup-tab-33-3.mp3  →  3. Se adjunta el estudio correspondiente.
 slide-30/titulo.mp3  →  ¿Sabías qué? Requisitos de la solicitud
 slide-31/titulo.mp3  →  Resolución 1740 de 2016: trámite del registro
@@ -141,7 +141,7 @@ slide-35/popup-fase-3.mp3  →  ¿Por qué se planifica el tiempo de aprovechami
 Renovabilidad: el aprovechamiento debe considerar la capacidad del guadual para recuperarse y continuar ofreciendo sus servicios ecosistémicos.
 Cronograma: organiza las actividades y ayuda a controlar que la intervención se realice de acuerdo con lo planificado.
 slide-36/titulo.mp3  →  Registro de aprovechamiento: contenido del estudio tipo 1 · Fase 4 - Operación y salidas del proceso
-slide-36/popup-fase-4.mp3  →  Fase 4 - Operación y salidas del proceso.
+slide-36/popup-fase-4.mp3  →  ¿Por qué se deben definir métodos, equipos e infraestructura?
 slide-37/titulo.mp3  →  ¿Qué es el estudio para el aprovechamiento tipo 2?
 slide-38/titulo.mp3  →  Identificación y localización del predio
 slide-38/popup-r-1.mp3  →  Identificación del predio.
@@ -156,7 +156,7 @@ Escala 1:1.000: 1 cm en el mapa representa 10 metros en el territorio. Se utiliz
 ¿Por qué importa?
 Una escala más detallada permite ubicar con mayor precisión el área del guadual que será objeto de aprovechamiento.
 slide-39/titulo.mp3  →  Entorno del guadual: caracterización físico-biótica
-slide-39/popup-entorno.mp3  →  Entorno del guadual.
+slide-39/popup-entorno.mp3  →  ¿Qué información debemos conocer sobre el entorno del guadual antes de realizar su aprovechamiento?
 slide-40/titulo.mp3  →  Predios públicos e identificación de especies
 slide-41/titulo.mp3  →  El guadual como parte de la cultura y del territorio
 slide-41/popup-r-1.mp3  →  Los valores culturales e históricos no son solo un requisito. Permiten reconocer la relación que las comunidades han construido con el guadual a lo largo del tiempo.
@@ -168,16 +168,16 @@ slide-42/titulo.mp3  →  ¿Cuántos guaduales hay y en qué estado están? Inve
 slide-42/general.mp3  →  ¿Por qué medir antes de cortar?
 Porque conocer la cantidad y el estado de la guadua permite planificar un aprovechamiento que considere la capacidad de renovación del ecosistema.
 
-Por esta razón, cuando se pretenda aprovechar un guadual o bambusal con densidad total inferior a dos mil (2.000) tallos o culmos por hectárea, solo se realizan prácticas silvícolas para su mejoramiento. Además, el sistema de aprovechamiento a emplear debe ser el de entresaca selectiva de los tallos o culmos maduros y sobremaduros; y el aprovechamiento total de los tallos secos y secos partidos. El porcentaje de intervención será como máximo el 35% de la población comercial.
-slide-42/popup-glosario-inventario.mp3  →  Glosario: inventario forestal.
+Por esta razón, cuando se pretenda aprovechar un guadual o bambusal con densidad total inferior a dos mil tallos o culmos por hectárea, solo se realizan prácticas silvícolas para su mejoramiento. Además, el sistema de aprovechamiento a emplear debe ser el de entresaca selectiva de los tallos o culmos maduros y sobremaduros; y el aprovechamiento total de los tallos secos y secos partidos. El porcentaje de intervención será como máximo el 35% de la población comercial.
+slide-42/popup-glosario-inventario.mp3  →  Glosario.
 slide-43/titulo.mp3  →  Duración y planificación
 slide-43/popup-uca.mp3  →  ¿Por qué se utiliza la Unidad de Corta Anual (UCA)?
 UCA – Unidad de Corta Anual: es una forma de organizar el aprovechamiento por periodos anuales cuando la intervención supera el tiempo establecido para un solo periodo.
 Finalidad ambiental: dividir el área por años permite ordenar la intervención y dar tiempo al guadual para recuperarse antes de una nueva intervención.
 slide-44/titulo.mp3  →  ¿Qué se obtiene y cómo se cuida el guadual?
-slide-44/popup-r-1.mp3  →  ¿Qué productos se obtendrán?.
-slide-44/popup-r-2.mp3  →  ¿Cómo se evitan daños al ambiente?.
-slide-44/popup-r-3.mp3  →  ¿Cómo se mejora el guadual?.
+slide-44/popup-r-1.mp3  →  ¿Qué productos se obtendrán?
+slide-44/popup-r-2.mp3  →  ¿Cómo se evitan daños al ambiente?
+slide-44/popup-r-3.mp3  →  ¿Cómo se mejora el guadual?
 slide-45/titulo.mp3  →  Contenido del estudio tipo 2 con POF (1, 2, 3, 4)
 slide-45/popup-r-1.mp3  →  Identificación, localización y extensión del predio. Identificación, localización y extensión del predio donde se encuentra ubicado el guadual y/o bambusal objeto de la solicitud de aprovechamiento, indicando jurisdicción departamental, municipal y veredal.
 slide-45/popup-r-2.mp3  →  Mapa del predio. Mapa del predio a escala no mayor a 1:5000.
@@ -208,7 +208,7 @@ slide-50/popup-r-3.mp3  →  Mapa detallado del área. Mapa del área objeto de 
 slide-50/popup-r-4.mp3  →  Caracterización del entorno.
 slide-51/titulo.mp3  →  Contenido del estudio: cambio en el uso del suelo (9, 10, 11, 12)
 slide-51/popup-r-1.mp3  →  Identificación de especies. Identificación de las especies de guadua y/o bambusal que serán objeto de aprovechamiento.
-slide-51/popup-r-2.mp3  →  Cantidad, madurez y volumen. Inventario estadístico, con una intensidad de muestreo de forma tal que el error no sea superior al quince por ciento (15%), con una probabilidad del noventa y cinco por ciento (95%), para determinar la cantidad de culmos en el área y su estado de madurez (renuevo, verde, madura, sobremadura y seca), y volumen total.
+slide-51/popup-r-2.mp3  →  Cantidad, madurez y volumen. Inventario estadístico, con una intensidad de muestreo de forma tal que el error no sea superior al quince por ciento, con una probabilidad del noventa y cinco por ciento, para determinar la cantidad de culmos en el área y su estado de madurez (renuevo, verde, madura, sobremadura y seca), y volumen total.
 slide-51/popup-r-3.mp3  →  Volumen por especie. Volumen total estimado por especie.
 slide-52/titulo.mp3  →  Contenido del estudio: cambio en el uso del suelo (13, 14, 15, 16)
 slide-52/popup-r-1.mp3  →  Productos y destino. Descripción de los productos a obtener y disposición final.
@@ -246,4 +246,3 @@ slide-59/popup-q63-mal.mp3  →  Es incorrecto, puedes intentarlo de nuevo.
 slide-60/titulo.mp3  →  Bibliografía.
 slide-61/titulo.mp3  →  Bibliografía.
 slide-62/titulo.mp3  →  ¡Felicitaciones! Finalizaste los contenidos del Módulo 2 con éxito.
-slide-63/titulo.mp3  →  Marco normativo y legal para el manejo de los ecosistemas de guadua y bambú.

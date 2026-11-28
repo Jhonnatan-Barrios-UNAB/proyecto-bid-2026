@@ -132,8 +132,7 @@ window.CONFIG = {
     "slide-30/titulo.mp3": "Conclusiones",
     "slide-31/titulo.mp3": "Bibliografía.",
     "slide-32/titulo.mp3": "Bibliografía.",
-    "slide-33/titulo.mp3": "¡Felicitaciones! Finalizaste los contenidos del Módulo 1 con éxito.",
-    "slide-34/titulo.mp3": "Introducción a los ecosistemas de guadua y bambú."
+    "slide-33/titulo.mp3": "¡Felicitaciones! Finalizaste los contenidos del Módulo 1 con éxito."
   },
   "subtitulos": {
     "slide-01/titulo.mp3": {
@@ -962,81 +961,81 @@ window.CONFIG = {
       ]
     },
     "slide-13/general.mp3": {
-      "d": 75.0,
+      "d": 72.99,
       "c": [
         [
           0.0,
-          4.44,
+          4.38,
           "A lo anterior se suma un fuerte componente cultural y social."
         ],
         [
-          4.45,
-          9.77,
+          4.39,
+          9.68,
           "En distintas regiones del país, la guadua hace parte de la identidad territorial,"
         ],
         [
-          9.78,
-          15.82,
+          9.69,
+          15.48,
           "de los conocimientos tradicionales y de prácticas constructivas transmitidas entre generaciones,"
         ],
         [
-          15.83,
-          19.31,
+          15.49,
+          18.66,
           "especialmente en el paisaje cultural cafetero,"
         ],
         [
-          19.26,
-          25.16,
+          18.67,
+          24.509999999999998,
           "donde ha contribuido históricamente a la configuración de viviendas y espacios rurales."
         ],
         [
-          25.17,
-          29.16,
+          24.52,
+          28.439999999999998,
           "Esto se reconoce explícitamente en el Artículo 12."
         ],
         [
-          29.17,
-          33.4,
+          28.45,
+          36.2,
           "Identidad cultural para el uso y manejo de la guadua y el bambú, de la Ley 2206 de 2022."
         ],
         [
-          33.41,
-          40.79,
+          36.21,
+          39.79,
           "Este artículo indica que, con el fin de crear conciencia educativa y cultural,"
         ],
         [
-          40.74,
-          46.56,
+          39.74,
+          45.42,
           "se impulsarán los valores ambientales y productivos del paisaje rural y urbano colombiano,"
         ],
         [
-          46.51,
-          53.91,
+          45.37,
+          52.02,
           "paisaje cultural cafetero de Colombia, al igual que de otras zonas donde se incentive el uso de la guadua y"
         ],
         [
-          53.86,
-          58.61,
+          51.97,
+          57.92,
           "el bambú; de tal forma que se recuperen los saberes tradicionales,"
         ],
         [
-          58.56,
-          63.16,
+          57.93,
+          61.34,
           "el conocimiento sobre su manejo y uso en la arquitectura rural y urbana,"
         ],
         [
-          63.11,
-          67.38,
+          61.29,
+          65.64999999999999,
           "y en la prestación de servicios ecosistémicos."
         ],
         [
-          67.39,
-          73.24,
+          65.66,
+          71.28,
           "Contenidos que se deberán promover en las líneas educativas de los planes de desarrollo y en los diferentes"
         ],
         [
-          73.19,
-          74.77,
+          71.23,
+          72.78,
           "niveles educativos."
         ]
       ]
@@ -1981,6 +1980,21 @@ window.CONFIG = {
         ]
       ]
     },
+    "slide-23/titulo.mp3": {
+      "d": 9.48,
+      "c": [
+        [
+          0.0,
+          7.42,
+          "Subsección 4: implementación de sistemas productivos y de restauración sostenible con especies de guadua y"
+        ],
+        [
+          7.37,
+          9.48,
+          "bambú en contextos locales"
+        ]
+      ]
+    },
     "slide-23/general.mp3": {
       "d": 42.92,
       "c": [
@@ -2078,6 +2092,91 @@ window.CONFIG = {
           0.0,
           3.83,
           "Sistemas productivos: sistemas agroforestales"
+        ]
+      ]
+    },
+    "slide-26/general.mp3": {
+      "d": 80.17,
+      "c": [
+        [
+          0.0,
+          4.5200000000000005,
+          "Un sistema agroforestal, donde cultivos agrícolas como café, cacao,"
+        ],
+        [
+          4.53,
+          10.33,
+          "plátano u otras especies pueden integrarse con bambú o guadua."
+        ],
+        [
+          10.34,
+          16.77,
+          "Estos arreglos permiten diversificar la producción, mejorar las condiciones microclimáticas del sistema,"
+        ],
+        [
+          16.78,
+          23.34,
+          "favorecer la conservación del suelo y generar oportunidades futuras de aprovechamiento de productos derivados"
+        ],
+        [
+          23.29,
+          24.439999999999998,
+          "del bambú."
+        ],
+        [
+          24.45,
+          30.819999999999997,
+          "Además, aumentan la resiliencia productiva frente a variaciones climáticas y económicas."
+        ],
+        [
+          30.83,
+          36.77,
+          "Finalmente, hacia la parte derecha observamos un sistema multipropósito comunitario,"
+        ],
+        [
+          36.72,
+          40.54,
+          "en el cual la guadua y el bambú se articulan con viveros,"
+        ],
+        [
+          40.49,
+          46.160000000000004,
+          "procesos de transformación artesanal y usos locales del material vegetal."
+        ],
+        [
+          46.17,
+          50.29,
+          "Este tipo de iniciativas puede fortalecer capacidades comunitarias,"
+        ],
+        [
+          50.24,
+          57.14,
+          "promover el uso sostenible de la biodiversidad y generar alternativas económicas vinculadas a la construcción,"
+        ],
+        [
+          57.09,
+          62.300000000000004,
+          "artesanías, restauración ecológica y producción local."
+        ],
+        [
+          62.31,
+          68.32,
+          "En conjunto, estos ejemplos muestran que la implementación de sistemas con guadua y bambú no responde a un"
+        ],
+        [
+          68.27,
+          70.71,
+          "modelo estandarizado."
+        ],
+        [
+          70.72,
+          75.22999999999999,
+          "Su éxito depende de reconocer las condiciones ecológicas del territorio,"
+        ],
+        [
+          75.24,
+          80.17,
+          "los conocimientos locales y las necesidades de quienes habitan el paisaje."
         ]
       ]
     },
@@ -2418,16 +2517,6 @@ window.CONFIG = {
           1.43,
           5.07,
           "Finalizaste los contenidos del Módulo 1 con éxito."
-        ]
-      ]
-    },
-    "slide-34/titulo.mp3": {
-      "d": 3.55,
-      "c": [
-        [
-          0.0,
-          3.55,
-          "Introducción a los ecosistemas de guadua y bambú."
         ]
       ]
     }

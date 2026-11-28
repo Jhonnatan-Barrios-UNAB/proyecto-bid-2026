@@ -1,5 +1,5 @@
 MULTIMEDIA · CURSO 2 · MÓDULO 2 · Marco normativo y legal para el manejo de los ecosistemas de guadua y bambú
-Proyecto BID · Primera versión (2026-11-24) · motor v12
+Proyecto BID · Primera versión (2026-11-24) · motor v11
 =====================================================================================================
 
 CÓMO ABRIRLO
@@ -9,7 +9,7 @@ CÓMO ABRIRLO
 - Con doble clic en index.html también funciona; el PDF se abre con el visor nativo del navegador.
 
 ESTRUCTURA
-  index.html                    Las 63 pantallas (el diseño de ppt-design reproducido en un escenario 1920×1080)
+  index.html                    Las 62 pantallas (el diseño de ppt-design reproducido en un escenario 1920×1080)
   css/estilos.css               Animaciones, estados, popups, barra inferior, menú y paneles
   js/config.js                  ← AQUÍ se cambian sonidos, videos, documentos e imágenes
   js/app.js                     Navegación, sonidos, locuciones, progreso, popups, tarjetas, preguntas, videos y visor PDF
@@ -18,7 +18,7 @@ ESTRUCTURA
   assets/audio/                 inicio.mp3 · fin.mp3 · cambio-slide.mp3 · popup.mp3 · correcto.mp3 · incorrecto.mp3
   assets/audio/locuciones/      Una carpeta por pantalla (slide-XX) con titulo.mp3 y popup-<id>.mp3 · GUION.txt
   videos/slide-XX/              Una carpeta por pantalla con video. Coloca ahí video.mp4 (ver el LEEME de cada carpeta)
-  documentos/                   PDF del módulo (F-TA-28 como material de apoyo; aquí va también el ANEXO 1 de categoría 1)
+  documentos/                   PDF del módulo: slide-08/ (ANEXO 1 de categoría 1, botón "Ver más" de la pantalla 8)
   assets/fonts/                 Work Sans (incluida, funciona sin internet)
   assets/lib/                   pdf.js (visor PDF)
 
@@ -54,7 +54,8 @@ LOCUCIÓN GENERAL (reproductor dentro del slide)
 INTERACCIONES
   Pantalla 2  · Tabla de contenido: cada ícono lleva a su subsección (normal · hover ámbar · visitado).
   Pantallas 5, 7, 38, 41, 44 y 45–55 · Se ven los botones/preguntas; cada clic descubre su texto y este se queda.
-               En 41 y 45–55 el avatar locuta la pregunta y su respuesta.
+               En 41 y 45–55 el avatar locuta la pregunta y su respuesta (en 46, 47 y 50 solo el título del ítem
+               largo: regla de 400 caracteres).
   Pantalla 6  · Artículo 3°: cada categoría abre su definición en el popup del diseño.
   Pantalla 8  · "Ver más": ANEXO 1 en el visor PDF (pendiente el archivo). Pantallas 10 y 11 · "Ver más" abre la resolución en la web.
   Pantalla 14 · Relacionar en 3 columnas: categoría → descripción → entidad de registro (las descripciones se barajan).
@@ -65,7 +66,8 @@ INTERACCIONES
   Pantalla 18 · Cada "Ver más" abre su artículo a la derecha.
   Pantalla 19 · Tarjetas que giran (una abierta a la vez); la 01 tiene "Ver más" con el informe técnico de cosecha.
   Pantalla 31 · Trámite del registro: cada número del flujograma abre su explicación.
-  Pantallas 33–36, 38, 39, 42 y 43 · "Ver más" abre la caja emergente del diseño (con su propio reproductor si es larga).
+  Pantallas 33–36, 38, 39, 42 y 43 · "Ver más" abre la caja emergente del diseño (con su propio reproductor si es larga;
+               la fase 4 de la 36 y el entorno de la 39 locutan solo su título).
   Preguntas (pantallas 13, 20, 21 y 59): 4 opciones en azul neutro, retroalimentación en el mismo slide
   (acierto → Continuar; error → Reintentar).
 
@@ -77,6 +79,9 @@ LOCUCIONES
   assets/audio/locuciones/slide-XX/titulo.mp3      → se reproduce al entrar a la pantalla
   assets/audio/locuciones/slide-XX/popup-<id>.mp3  → se reproduce al abrir ese popup, pestaña, tarjeta o ítem
   Por ahora todas son el audio provisional. GUION.txt lista cada archivo con el texto que debe decir.
+  Regla de 400 caracteres (2026-11-24, sin reconstruir): un popup cuyo texto para locutar pasaba de 400 caracteres locuta
+  solo su título y no lleva reproductor (pantallas 19, 36, 39, 46, 47 y 50; el texto en pantalla no cambia). Las locuciones
+  generales de más de 400 se dejaron completas por decisión de Jhonnatan.
   Los audios reales se hacen con la skill generar-locuciones-bid (voz laura_argel).
 
 VIDEOS
@@ -84,8 +89,8 @@ VIDEOS
   Busca videos/slide-03/video.mp4; mientras no esté, muestra "Video pendiente de cargar". Guion en GUION-video.txt.
 
 DOCUMENTOS
-  Formulario F-TA-28 (registro de plantaciones forestales protectoras): botón "Material de apoyo" de la barra inferior.
-  ANEXO 1 (registro de guaduales y bambusales categoría 1): "Ver más" de la pantalla 8 → documentos/ANEXO-1-registro-guaduales-categoria-1.pdf
+  Este módulo no lleva botón "Material de apoyo" en la barra (decisión de Jhonnatan, 2026-11-28).
+  ANEXO 1 (registro de guaduales y bambusales categoría 1): "Ver más" de la pantalla 8 → documentos/slide-08/Formato-ppt8-MinAmbiente proyecto de resolución registro de guaduales y bambusales-Formato Único Nacional.pdf
 
 AVANCE
   El porcentaje cuenta pantallas visitadas, pestañas, popups, tarjetas, ítems, enlaces, videos, documentos y actividades.

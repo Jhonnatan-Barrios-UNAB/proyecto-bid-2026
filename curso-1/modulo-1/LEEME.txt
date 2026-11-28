@@ -1,5 +1,5 @@
 MULTIMEDIA · MÓDULO 1 · Introducción a la compra y consumo responsable de productos forestales maderables
-Proyecto BID · Primera versión
+Proyecto BID · Versión con el motor v20 (2026-11-28)
 =====================================================================================================
 
 CÓMO ABRIRLO
@@ -9,7 +9,7 @@ CÓMO ABRIRLO
 - Con doble clic en index.html también funciona; el PDF se abre con el visor nativo del navegador.
 
 ESTRUCTURA
-  index.html                    Las 33 pantallas (el diseño de ppt-design reproducido en un escenario 1920×1080)
+  index.html                    Las 32 pantallas (el diseño de ppt-design reproducido en un escenario 1920×1080)
   css/estilos.css               Animaciones, estados, popups, barra inferior, menú y paneles
   js/config.js                  ← AQUÍ se cambian sonidos, videos, documentos e imágenes
   js/app.js                     Navegación, sonidos, locuciones, progreso, popups, tarjetas, preguntas, videos y visor PDF
@@ -48,7 +48,8 @@ ANIMACIÓN
 
 PESTAÑAS (pantallas 11, 18 y 25)
   Al entrar no hay ninguna pestaña elegida: el usuario da clic para ver cada contenido. Al cambiar de pestaña,
-  primero sale el contenido anterior (0,3 s) y luego entra el nuevo.
+  primero sale el contenido anterior (0,3 s) y luego entra el nuevo. El rótulo de cada pestaña va centrado en vertical
+  en su recuadro y deja libre la esquina de la manito / visto.
 
 BOTONES CON ESTADOS (pantallas 3, 4, 12 y 26)
   Sin visitar: ícono azul del diseño · Hover: el mismo ícono en ámbar · Visitado: el mismo ícono en verde con fondo blanco.
@@ -63,14 +64,28 @@ LOCUCIONES
   assets/audio/locuciones/slide-XX/popup-<id>.mp3  → se reproduce al abrir ese popup, pestaña, tarjeta o ítem (su título;
                                                      las retroalimentaciones de las preguntas dicen sus notas)
   assets/audio/locuciones/slide-XX/general.mp3     → locución general del slide (ver abajo)
-  Por ahora todas tienen el MISMO audio provisional. GUION.txt lista cada archivo con el texto que debe decir.
+  Todas son locuciones reales (voz laura_argel, ElevenLabs). GUION.txt lista cada archivo con el texto que dice.
+  Para cambiar o rehacer una se usa la skill generar-locuciones-bid (no reconstruye el multimedia).
   El botón CC muestra u oculta los subtítulos (salen del texto del guion).
 
 LOCUCIÓN GENERAL (reproductor dentro del slide, arriba a la derecha)
   Pantallas 9 (Movilización: las notas piden "Locutar todo el texto"), 19 (Ventajas del uso de madera) y 27 (Para resumir):
   primero suena el título y luego la locución general (notas de ppt-contenidos). Play/pausa, barra de tiempo, duración y
   velocidad 1x/1,5x/2x. Al abrir un popup o un elemento interactivo se pausa y se reanuda al cerrarlo; si ya terminó no
-  vuelve a sonar sola. Subtítulos con el botón CC. Audio provisional de 45 s en slide-XX/general.mp3.
+  vuelve a sonar sola. Subtítulos con el botón CC. Audio en slide-XX/general.mp3.
+
+ACTIVIDADES (pantallas 10, 13, 14 y 15)
+  Llevan arriba a la derecha el reproductor de su enunciado (play/pausa, barra, duración, 1x/1,5x/2x y subtítulos).
+  Suena solo al entrar; al responder se pausa y no se reanuda solo.
+
+REPRODUCTORES DE LOCUCIÓN
+  Todos (locución general, actividades y popups) se pueden arrastrar con el mouse o el dedo desde el agarre de puntos;
+  el del slide no sale del escenario y el de un popup no sale de su caja.
+
+TECLADO (Tab)
+  Al cambiar de pantalla el foco entra al primer elemento del slide. El Tab recorre el slide en orden de lectura (o por su
+  numeración: eslabones 01→04 de la pantalla 12, Para reflexionar 01→03), con lo que abre cada botón justo después de él;
+  luego la barra: Siguiente → Anterior → Menú → resto. El hover y el foco del teclado se ven igual.
 
 VIDEOS
   Los espacios "Dejar aquí el video de YouTube" quedaron como reproductores propios

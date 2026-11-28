@@ -1,5 +1,5 @@
 GUION DE LOCUCIONES · Curso 1 · Módulo 1 (proyecto BID)
-Audios reales: 104 de 104 (detalle en registro-locuciones.json; los demás tienen el audio provisional).
+Audios reales: 103 de 103 (detalle en registro-locuciones.json; los demás tienen el audio provisional).
 Se generan con la skill generar-locuciones-bid (voz laura_argel). titulo.mp3 = título del slide; general.mp3 = locución general
 (suena después del título, con su reproductor en el slide); popup-*.mp3 = cada elemento interactivo.
 Los subtítulos (CC) se generan con el texto de este guion y se reparten según la duración del audio.
@@ -107,4 +107,3 @@ slide-29/titulo.mp3  →  Bibliografía.
 slide-30/titulo.mp3  →  Bibliografía.
 slide-31/titulo.mp3  →  Bibliografía. Videos finales.
 slide-32/titulo.mp3  →  ¡Felicitaciones!
-slide-33/titulo.mp3  →  Introducción a la compra y consumo responsable de productos forestales maderables.

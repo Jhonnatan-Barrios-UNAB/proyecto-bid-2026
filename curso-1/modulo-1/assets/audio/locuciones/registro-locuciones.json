@@ -773,18 +773,18 @@
   "slide-17/popup-madera-61.mp3": {
    "texto": "Pilote.",
    "hash": "77b904827729",
-   "locutado": "Pilote.",
+   "locutado": "Pilóte.",
    "voz": "laura_argel",
    "voice_id": "tNqQ89xlclSJUUJV4U9y",
    "modelo": "eleven_v4",
    "origen": "generar",
-   "sesion_el": "uaz0JXtDadDNblZoIvFc",
-   "generacion": "fj1be7ZSizg7k3iRE0UT",
+   "sesion_el": "21Wv0sNUgEb70zOqUInW",
+   "generacion": "RzZRzAH0EgiwW0gXF5Ae",
    "flow_id": "b4ASynG59YK2JLlof2Jk",
-   "sesion_bid": "20261120-2303",
-   "fecha": "2026-11-20",
+   "sesion_bid": "20261127-2252",
+   "fecha": "2026-11-27",
    "duracion": 0.84,
-   "sha1": "4cfcbd8bbabb8a78d00cf8eb4805bb3ccab90c46"
+   "sha1": "83aa7c12ce8b3a6d288ec3741f5ec20501d7b7a6"
   },
   "slide-17/popup-madera-62.mp3": {
    "texto": "Troza.",
@@ -1395,20 +1395,20 @@
    "sha1": "970d91ce84b2cb31fa18c7ccc3b4b2ddd9b61844"
   },
   "slide-25/popup-e-1.mp3": {
-   "texto": "Promueves la cadena de valor",
-   "hash": "36fe1b622f7e",
-   "locutado": "Promueves la cadena de valor.",
+   "texto": "Promueve la cadena de valor",
+   "hash": "913431b5387c",
+   "locutado": "Promueve la cadena de valor.",
    "voz": "laura_argel",
    "voice_id": "tNqQ89xlclSJUUJV4U9y",
    "modelo": "eleven_v4",
    "origen": "generar",
-   "sesion_el": "AcPlw0iHAsp8jJCDZY9c",
-   "generacion": "LS29Kj3643iIgxjlhCWw",
+   "sesion_el": "YJRjPPaE3Cl9T82L0BKX",
+   "generacion": "4ie5jkuwb7jxPTrHHNHO",
    "flow_id": "b4ASynG59YK2JLlof2Jk",
-   "sesion_bid": "20261120-2303",
-   "fecha": "2026-11-20",
+   "sesion_bid": "20261127-2252",
+   "fecha": "2026-11-27",
    "duracion": 2.12,
-   "sha1": "47c9e23dc0ec4b890879875b8f92ebd29e559c99"
+   "sha1": "a45c3dc59e991e3b10b85e7c3f767cf25ef75c73"
   },
   "slide-25/popup-e-2.mp3": {
    "texto": "Promueve la economía circular",
@@ -1507,20 +1507,20 @@
    "sha1": "9ecdf9be6521194c2a886e4f54f28be4abecb35c"
   },
   "slide-26/popup-e-3.mp3": {
-   "texto": "Como comprador y consumidor debes: informarte del origen del producto que consumes y el impacto que genera su obtención; cuestionar tu necesidad de consumo y aplicar el pensamiento de reducir, reutilizar, reusar, reciclar; y elegir la opción que genere menor impacto negativo, mayor confiabilidad y beneficio social.",
-   "hash": "ee9cee25e3c8",
-   "locutado": "Como comprador y consumidor debes: informarte del origen del producto que consumes y el impacto que genera su obtención; cuestionar tu necesidad de consumo y aplicar el pensamiento de reducir, reutilizar, reusar, reciclar; y elegir la opción que genere menor impacto negativo, mayor confiabilidad y beneficio social.",
+   "texto": "Como comprador y consumidor debes: informarte del origen del producto que consumes y el impacto que genera su obtención; cuestionar tu necesidad de consumo y aplicar el pensamiento de reducir, reutilizar, reusar, reciclar; y elegir la opción que genere menor impacto negativo, mayor confiabilidad y beneficio social, priorizando productos forestales cuyo origen legal esté garantizado. Para ello puedes utilizar herramientas como la certificación forestal voluntaria, el reconocimiento a la procedencia legal, y el catálogo de productos en elijamaderalegal.com sobre los que profundizaremos en el siguiente módulo.",
+   "hash": "dedcced6bb20",
+   "locutado": "Como comprador y consumidor debes: informarte del origen del producto que consumes y el impacto que genera su obtención; cuestionar tu necesidad de consumo y aplicar el pensamiento de reducir, reutilizar, reusar, reciclar; y elegir la opción que genere menor impacto negativo, mayor confiabilidad y beneficio social, priorizando productos forestales cuyo origen legal esté garantizado. Para ello puedes utilizar herramientas como la certificación forestal voluntaria, el reconocimiento a la procedencia legal, y el catálogo de productos en elija madera legal punto com sobre los que profundizaremos en el siguiente módulo.",
    "voz": "laura_argel",
    "voice_id": "tNqQ89xlclSJUUJV4U9y",
    "modelo": "eleven_v4",
    "origen": "generar",
-   "sesion_el": "xAyj5D6J6OKPZLNJe7ZM",
-   "generacion": "5fT2049rR9WAteZD6xSr",
+   "sesion_el": "elcTpTDKHOvA0S3MUVQ1",
+   "generacion": "g0e4rWNEPZpiD5mltA4N",
    "flow_id": "b4ASynG59YK2JLlof2Jk",
-   "sesion_bid": "20261120-2303",
-   "fecha": "2026-11-20",
-   "duracion": 23.25,
-   "sha1": "5546ebce5d53d5a83ed0f4929756f14313051dec"
+   "sesion_bid": "20261127-2252",
+   "fecha": "2026-11-27",
+   "duracion": 42.19,
+   "sha1": "a643c196d266823e1cf24054598b854d71451cf6"
   },
   "slide-26/titulo.mp3": {
    "texto": "Para reflexionar.",
@@ -1668,5 +1668,5 @@
   }
  },
  "flow_id": "b4ASynG59YK2JLlof2Jk",
- "actualizado": "2026-11-20 23:13"
+ "actualizado": "2026-11-27 22:54"
 }

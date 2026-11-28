@@ -83,7 +83,7 @@
   function trozos(txt, dur, clave) {
     const s = clave && SUBS[clave];
     if (s && Math.abs(s.d - dur) < 0.3) return s.c.map(([ini, fin, texto]) => ({ ini, fin, texto }));
-    const frases = ((txt || "").replace(/\s+/g, " ").replace(/(^|\s)([a-hA-H]|et al|p\. ej)\.(?=\s)/g, "$1$2\u2024").match(/[^.!?]+[.!?]+|[^.!?]+$/g) || []).map((f) => f.replace(/\u2024/g, "."));
+    const frases = ((txt || "").replace(/\s+/g, " ").replace(/(^|[\s(])((?:[A-Za-zÁÉÍÓÚÑ]\.)+(?=\s)|et al\.|p\. ej\.)/g, (m, a, b) => a + b.replace(/\./g, "\u2024")).match(/[^.!?]+[.!?]+|[^.!?]+$/g) || []).map((f) => f.replace(/\u2024/g, "."));
     const partes = [];
     frases.forEach((f) => { f = f.trim(); if (!f) return; if (f.length > 120) { const pal = f.split(" "); let a = ""; pal.forEach((w) => { if ((a + " " + w).length > 110) { partes.push(a.trim()); a = w; } else a += " " + w; }); if (a.trim()) partes.push(a.trim()); } else partes.push(f); });
     const totalChars = partes.reduce((s, p) => s + p.length, 0) || 1;
@@ -124,7 +124,7 @@
      Suena después del título; una interacción (popup, tarjeta, ítem revelado…) la pausa y se reanuda al cerrar el popup
      o al terminar la locución de la interacción. Si ya terminó, no vuelve a sonar sola. Usa los mismos subtítulos (CC). */
   const gen = new Audio(); gen.preload = "none"; gen.volume = L.volumen ?? 1;
-  let genCues = [], genSlide = -1, genInterrumpida = false, genAuto = false, vozEsTitulo = false, genVel = 1;
+  let genCues = [], genSlide = -1, genInterrumpida = false, genAuto = false, vozEsTitulo = false, genVel = 1, genArchivo = "general.mp3", tGen = null;
   const VELS = [1, 1.5, 2];
   const fmtT = (t) => { t = Math.max(0, Math.floor(t || 0)); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); };
   const rlActual = () => (genSlide === actual && slides[actual]) ? slides[actual].querySelector(".repro-loc") : null;
@@ -140,13 +140,15 @@
     r.querySelector(".rl-play").setAttribute("aria-label", gen.paused ? "Reproducir locución" : "Pausar locución");
   }
   function prepararGeneral(n) {
-    gen.pause(); genInterrumpida = false; genAuto = false; genCues = [];
+    gen.pause(); clearTimeout(tGen); genInterrumpida = false; genAuto = false; genCues = [];
     const s = slides[n];
     if (!s || !s.dataset.general) { genSlide = -1; gen.removeAttribute("src"); return; }
-    genSlide = n; gen.src = rutaLoc(n + 1, "general.mp3"); gen.preload = "auto"; gen.load(); gen.playbackRate = genVel;
+    // v17: en los slides de actividad (preguntas, relacionar, completar…) el reproductor del slide es el de su titulo.mp3
+    genArchivo = s.dataset.general === "titulo" ? "titulo.mp3" : "general.mp3";
+    genSlide = n; gen.src = rutaLoc(n + 1, genArchivo); gen.preload = "auto"; gen.load(); gen.playbackRate = genVel;
     pintarRL();
   }
-  gen.addEventListener("loadedmetadata", () => { genCues = trozos(textos[`slide-${dos(genSlide + 1)}/general.mp3`], gen.duration || 4, `slide-${dos(genSlide + 1)}/general.mp3`); pintarRL(); });
+  gen.addEventListener("loadedmetadata", () => { genCues = trozos(textos[`slide-${dos(genSlide + 1)}/${genArchivo}`], gen.duration || 4, `slide-${dos(genSlide + 1)}/${genArchivo}`); pintarRL(); });
   ["timeupdate", "play", "pause", "ended", "durationchange", "ratechange"].forEach((ev) => gen.addEventListener(ev, () => { pintarRL(); pintarSub(); }));
   function tocarGeneral() {
     if (genSlide !== actual || silencio) return;
@@ -157,7 +159,8 @@
   }
   function pausarGeneral(porInteraccion) {
     genAuto = false;
-    if (!gen.paused) { gen.pause(); if (porInteraccion) genInterrumpida = true; }
+    // v17: en un slide de actividad, responder (retroalimentación) pausa el enunciado y ya no se reanuda solo
+    if (!gen.paused) { gen.pause(); if (porInteraccion && genArchivo !== "titulo.mp3") genInterrumpida = true; }
   }
   function reanudarGeneral() {
     if (!genInterrumpida || genSlide !== actual || popAbierto || silencio) return;
@@ -329,6 +332,11 @@
       lider.classList.add("con-marco");
       lider.addEventListener("focus", () => { if (lider.matches(":focus-visible")) marco.classList.add("ver"); });
       lider.addEventListener("blur", () => marco.classList.remove("ver"));
+      // v15: el mismo marco con el mouse encima (hover = foco)
+      g.forEach((b) => {
+        b.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse" || e.pointerType === "pen") marco.classList.add("ver"); });
+        b.addEventListener("pointerleave", () => { if (document.activeElement !== lider) marco.classList.remove("ver"); });
+      });
     });
   });
   // ¿se está usando el teclado? (para devolver el foco visible al cerrar popups y paneles)
@@ -343,28 +351,138 @@
   });
   // el foco no se escapa de un popup, del menú lateral ni del visor mientras están abiertos (Tab y Mayús+Tab dan la vuelta)
   function enfocables(c) {
-    return [...c.querySelectorAll("button, a[href], input, select, textarea, [tabindex]")].filter((x) => x.tabIndex >= 0 && !x.disabled && !x.hidden && !x.closest("[hidden]") && x.getClientRects().length && getComputedStyle(x).visibility !== "hidden");
+    return [...c.querySelectorAll("button, a[href], input, select, textarea, [tabindex]")].filter((x) => x.tabIndex >= 0 && !x.disabled && !x.hidden && !x.closest("[hidden], [inert]") && x.getClientRects().length && getComputedStyle(x).visibility !== "hidden" && !inactivo(x));
+  }
+  // v16: lo que ya no hace nada no entra al recorrido con Tab (igual que con el mouse): parejas ya relacionadas, fragmentos ya
+  // usados, opciones de una pregunta resuelta (pointer-events:none) y espacios vacíos de "completa la frase"
+  function inactivo(x) {
+    if (!x.classList.contains("hot")) return false;
+    if (getComputedStyle(x).pointerEvents === "none") return true;
+    if (x.classList.contains("hueco-hot")) { const h = x.closest(".slide").querySelector(`.hueco[data-hueco="${x.dataset.huecoHot}"]`); return !h || !h.dataset.con; }
+    return false;
+  }
+  // v15 · ORDEN DEL TABULADOR = orden de lectura en español: de arriba hacia abajo por filas y, en cada fila, de izquierda a
+  // derecha. Lo que se abre (pestaña/estado, panel sin velo) se recorre justo después del botón que lo abrió y luego sigue el
+  // siguiente botón del slide. En un popup modal se recorren primero sus botones y al final los de cerrar (X, Continuar,
+  // Reintentar); el foco no sale de ahí hasta cerrarlo y al cerrar vuelve al botón que lo abrió.
+  const CIERRA = "[data-cerrar], .hot.cerrar, .bpop-x, .gen-x, .pf-cerrar, [data-continuar], [data-reintentar]";
+  function ordenLectura(lista) {
+    const it = lista.map((el) => { const r = el.getBoundingClientRect(); return { el, x: r.left, y: r.top, h: r.height }; });
+    it.sort((a, b) => a.y - b.y || a.x - b.x);
+    const filas = [];
+    it.forEach((e) => {
+      const f = filas[filas.length - 1];
+      // misma fila si empieza antes de la mitad del primero de la fila (y la fila no es mucho más alta que el elemento)
+      if (f && e.y < f.y + Math.min(f.h, e.h) * 0.6) f.items.push(e); else filas.push({ y: e.y, h: e.h, items: [e] });
+    });
+    return filas.flatMap((f) => f.items.sort((a, b) => a.x - b.x).map((e) => e.el));
+  }
+  // v17 · NUMERACIÓN / AÑOS: si los interactivos están numerados (líneas de tiempo con años, pasos 1-2-3, 01-02-03…) el Tab
+  // los recorre en el orden de su número o año y no por su posición; lo que cada uno abre se sigue recorriendo justo después
+  // de él. Número = data-orden, o el año / número con que empieza su rótulo (data-etq / aria-label). Solo con 2 o más numerados;
+  // los demás interactivos conservan su lugar en el orden de lectura.
+  function numeroDe(x) {
+    if (x.dataset && x.dataset.orden) return +x.dataset.orden;
+    const t = ((x.dataset && x.dataset.etq) || x.getAttribute("aria-label") || "").trim();
+    let m = t.match(/^(1[5-9]\d\d|20\d\d)(?!\d)/); if (m) return +m[1];
+    m = t.match(/^(?:paso\s+|etapa\s+|n\.?\s*)?(\d{1,2})(?=$|[\s.):\-–])/i); return m ? +m[1] : null;
+  }
+  // los controles de un reproductor de locución (play → barra → velocidad) van juntos y en ese orden, no por su altura
+  function reproEnOrden(lista) {
+    const out = lista.slice();
+    new Set(lista.map((x) => x.closest(".repro-loc")).filter(Boolean)).forEach((r) => {
+      const pos = []; out.forEach((x, i) => { if (r.contains(x)) pos.push(i); });
+      const dom = pos.map((i) => out[i]).sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
+      const ini = pos[0]; pos.forEach((i) => (out[i] = null));
+      out.splice(ini, 1, ...dom);
+    });
+    return out.filter(Boolean);
+  }
+  function porNumero(lista) {
+    const pos = [], nums = [];
+    lista.forEach((x, i) => { const k = numeroDe(x); if (k !== null && !x.matches(CIERRA)) { pos.push(i); nums.push({ x, k, i }); } });
+    if (nums.length < 2) return lista;
+    nums.sort((a, b) => a.k - b.k || a.i - b.i);
+    const out = lista.slice(); pos.forEach((p, j) => (out[p] = nums[j].x));
+    return out;
+  }
+  function ordenGrupo(c) {   // dentro de algo abierto: sus botones en orden de lectura y al final los que cierran
+    const f = enfocables(c), cerr = f.filter((x) => x.matches(CIERRA));
+    return reproEnOrden(porNumero(ordenLectura(f.filter((x) => !cerr.includes(x))))).concat(ordenLectura(cerr));
+  }
+  function abridorDe(s, c) {
+    let b = null;
+    if (c.classList.contains("estado")) b = s.querySelector(`.hot[data-estado="${c.dataset.k}"]`);
+    else if (c.id) b = s.querySelector(`.hot[data-pop="${c.id}"]`);
+    if (b && b.classList.contains("grupo-miembro") && b._lider) b = b._lider;
+    return b;
+  }
+  function ordenSlide(s) {
+    const abiertos = [...s.querySelectorAll(".capa.estado.activo, .dpop.sin-velo.abierto")];
+    const k = estadoActual(s);
+    // botones que solo existen con un estado abierto (data-solo-estado) son contenido de ese estado aunque vivan fuera de su capa
+    const soloDe = (x) => k >= 0 && x.dataset && x.dataset.soloEstado === String(k);
+    const dentro = (x) => soloDe(x) || abiertos.some((c) => c.contains(x));
+    let orden = reproEnOrden(porNumero(ordenLectura(enfocables(s).filter((x) => !dentro(x)))));
+    abiertos.forEach((c) => {
+      let g = ordenGrupo(c);
+      if (c.classList.contains("estado")) g = ordenLectura(g.concat(enfocables(s).filter(soloDe)));
+      if (!g.length) return;
+      const b = abridorDe(s, c), i = b ? orden.indexOf(b) : -1;
+      if (i >= 0) orden.splice(i + 1, 0, ...g);
+      else orden = ordenLectura(orden.concat(g));
+    });
+    return orden;
+  }
+  // v19 · BARRA INFERIOR: después de todo el slide (con sus popups y lo que tenga abierto) el Tab va primero a Siguiente, luego a
+  // Anterior, luego a Menú y después al resto de la barra en su orden. Lo que abre cada botón de la barra (configuración, lo que
+  // te falta…) se recorre justo después de ese botón. El menú lateral, el visor y los popups siguen atrapando el foco.
+  function ordenBarra() {
+    const todos = enfocables(document.body).filter((x) => !x.closest(".slide"));
+    const abiertos = todos.map((b) => b.getAttribute("aria-controls")).filter(Boolean).map((id) => $(id))
+      .filter((p) => p && !p.hidden && p.getAttribute("aria-hidden") !== "true" && !p.closest("#barra"));
+    const enAbierto = (x) => abiertos.some((p) => p.contains(x));
+    const base = todos.filter((x) => !enAbierto(x));
+    const prim = [$("btnNext"), $("btnPrev"), $("btnMenu")].filter((x) => x && base.includes(x));
+    const barra = base.filter((x) => x.closest("#barra") && !prim.includes(x));
+    const otros = base.filter((x) => !x.closest("#barra") && !prim.includes(x));
+    const out = [];
+    prim.concat(barra, otros).forEach((x) => {
+      out.push(x);
+      const p = x.getAttribute("aria-controls") && $(x.getAttribute("aria-controls"));
+      if (p && abiertos.includes(p)) out.push(...ordenGrupo(p));
+    });
+    return out;
+  }
+  function recorrido() {
+    if ($("visor").classList.contains("abierto")) return { lista: ordenGrupo($("visor")), cerrado: true };
+    if (popAbierto && !popAbierto.classList.contains("sin-velo")) return { lista: ordenGrupo(popAbierto), cerrado: true };
+    if (repro.classList.contains("menu-abierto")) return { lista: enfocables($("menuLateral")), cerrado: true };
+    const s = slides[actual];
+    return { lista: ordenSlide(s).concat(ordenBarra()), cerrado: false };
   }
   document.addEventListener("keydown", (e) => {
-    if (e.key !== "Tab") return;
-    let c = null;
-    if ($("visor").classList.contains("abierto")) c = $("visor");
-    else if (popAbierto && !popAbierto.classList.contains("sin-velo")) c = popAbierto;
-    else if (repro.classList.contains("menu-abierto")) c = $("menuLateral");
-    if (!c) {
-      // sin nada abierto: el recorrido da la vuelta dentro del multimedia (slide actual → barra → slide actual)
-      const f = enfocables(document.body).filter((x) => !x.closest(".slide") || x.closest(".slide") === slides[actual]);
-      if (!f.length) return;
-      const i = f.indexOf(document.activeElement);
-      if (!e.shiftKey && (i === f.length - 1 || i === -1)) { e.preventDefault(); f[0].focus(); }
-      else if (e.shiftKey && (i === 0 || i === -1)) { e.preventDefault(); f[f.length - 1].focus(); }
-      return;
+    if (e.key !== "Tab" || e.altKey || e.ctrlKey || e.metaKey) return;
+    const { lista } = recorrido();
+    e.preventDefault();
+    if (!lista.length) return;
+    let a = document.activeElement;
+    if (a && a.classList && a.classList.contains("grupo-miembro") && a._lider) a = a._lider;
+    let i = lista.indexOf(a);
+    if (i === -1 && a && a !== document.body) {   // el foco está en algo que no es enfocable (p. ej. un contenedor): seguir desde ahí
+      const r = a.getBoundingClientRect();
+      i = lista.findIndex((x) => { const q = x.getBoundingClientRect(); return q.top > r.top || (q.top === r.top && q.left > r.left); }) - 1;
     }
-    const f = enfocables(c); if (!f.length) { e.preventDefault(); return; }
-    const i = f.indexOf(document.activeElement);
-    if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
-    else if (!e.shiftKey && (i === -1 || i === f.length - 1)) { e.preventDefault(); f[0].focus(); }
+    const n = lista.length;
+    let sig = i === -1 && !e.shiftKey ? 0 : i === -1 ? n - 1 : (i + (e.shiftKey ? -1 : 1) + n) % n;
+    // si un elemento no acepta el foco (p. ej. está saliendo), se salta al siguiente: el tabulador nunca se queda pegado
+    for (let k = 0; k < n; k++) {
+      lista[sig].focus({ preventScroll: true, focusVisible: true });
+      if (document.activeElement === lista[sig] || lista[sig].contains(document.activeElement)) break;
+      sig = (sig + (e.shiftKey ? -1 : 1) + n) % n;
+    }
   });
+  window.BID_orden = () => recorrido().lista;   // para pruebas (QA)
 
   /* =================== Estados (pestañas / menús interactivos) =================== */
   function estadoActual(s) { const a = s.querySelector(".capa.estado.activo"); return a ? +a.dataset.k : -1; }
@@ -425,7 +543,7 @@
     sonar("popup");
     const s = p.closest(".slide");
     if (conVoz && s) hablar(rutaLoc(slideDe(p), `${id.replace(/^pop-/, "popup-")}.mp3`), 380);
-    setTimeout(() => { const x = p.querySelector("[data-cerrar]:not(.dpop-velo), [data-continuar], [data-reintentar]"); if (x && x.focus) x.focus({ preventScroll: true }); }, 60);
+    setTimeout(() => { const x = ordenGrupo(p).filter((b) => !b.classList.contains("dpop-velo"))[0]; if (x && x.focus) x.focus({ preventScroll: true, focusVisible: teclado }); }, 60);
   }
   function cerrarPop(silencioso) {
     if (!popAbierto) return;
@@ -474,8 +592,14 @@
     (p.querySelector(".dpop-capa") || p).append(r);   // después de la X: al abrir, Tab pasa de la X al reproductor
     p._rl = r; p._clave = clave; p._archivo = archivo;
   });
+  function cajaPop(p) {   // la caja principal del popup (la más grande que no ocupa toda la pantalla)
+    let caja = null, area = 0;
+    p.querySelectorAll(".dpop-capa > .el, .dpop-capa > .bpop, .bpop").forEach((e) => { const a = e.offsetWidth * e.offsetHeight; if (a > area && e.offsetWidth < 1880) { area = a; caja = e; } });
+    return caja;
+  }
   function ubicarRLPop(p) {
     const r = p._rl; if (!r || r._ubicado) return;
+    r._caja = cajaPop(p);
     if (p.dataset.rl) {   // data-rl="x,y" (esquina sup. izq.) o "x,y,br|bl|tr|tl" (x,y es esa esquina: en pantallas chicas crece hacia adentro)
       const [xs, ys, an] = p.dataset.rl.split(","), x = +xs, y = +ys, a = (an || "tl").trim();
       r.style.left = (a[1] === "r" ? x - 440 : x) + "px";
@@ -490,6 +614,45 @@
     }
     r._ubicado = true;
   }
+  /* v18 · REPRODUCTORES ARRASTRABLES: todo reproductor de locución (del slide, de actividad y de popup) se puede mover
+     arrastrándolo desde cualquier parte que no sea un botón o la barra (mouse o dedo). El del slide se queda dentro del
+     escenario; el de un popup se queda dentro de la caja del popup (no puede salir de ella, así soltarlo nunca cierra el
+     popup). Conserva su nueva posición mientras la página esté abierta y se oculta con su popup como siempre. */
+  function arrastrable(r) {
+    r.addEventListener("pointerdown", (e) => {
+      if ((e.button || 0) > 0 || e.target.closest("button, input")) return;
+      const s = parseFloat(getComputedStyle(stage).getPropertyValue("--s")) || 1;
+      const p = r.closest(".dpop"), cont = p ? (r._caja || cajaPop(p) || p) : r.closest(".slide");
+      const x0 = r.offsetLeft, y0 = r.offsetTop, sx = e.clientX, sy = e.clientY;
+      r.style.left = x0 + "px"; r.style.top = y0 + "px"; r.style.right = "auto"; r.style.bottom = "auto";
+      let movio = false;
+      const limitar = () => {
+        const a = r.getBoundingClientRect(), c = cont.getBoundingClientRect(), m = 6;
+        let dx = 0, dy = 0;
+        if (a.width > c.width - 2 * m) dx = c.left + (c.width - a.width) / 2 - a.left;
+        else if (a.left < c.left + m) dx = c.left + m - a.left; else if (a.right > c.right - m) dx = c.right - m - a.right;
+        if (a.height > c.height - 2 * m) dy = c.top + (c.height - a.height) / 2 - a.top;
+        else if (a.top < c.top + m) dy = c.top + m - a.top; else if (a.bottom > c.bottom - m) dy = c.bottom - m - a.bottom;
+        if (dx || dy) { r.style.left = (parseFloat(r.style.left) + dx / s) + "px"; r.style.top = (parseFloat(r.style.top) + dy / s) + "px"; }
+      };
+      const mover = (ev) => {
+        const dx = (ev.clientX - sx) / s, dy = (ev.clientY - sy) / s;
+        if (!movio && Math.hypot(ev.clientX - sx, ev.clientY - sy) < 4) return;
+        if (!movio) { movio = true; r.classList.add("arrastrando", "movido"); }
+        r.style.left = (x0 + dx) + "px"; r.style.top = (y0 + dy) + "px"; limitar();
+      };
+      const fin = (ev) => {
+        r.removeEventListener("pointermove", mover); r.removeEventListener("pointerup", fin); r.removeEventListener("pointercancel", fin);
+        try { r.releasePointerCapture(ev.pointerId); } catch (err) {}
+        r.classList.remove("arrastrando"); if (movio) r._ubicado = true;
+      };
+      try { r.setPointerCapture(e.pointerId); } catch (err) {}
+      r.addEventListener("pointermove", mover); r.addEventListener("pointerup", fin); r.addEventListener("pointercancel", fin);
+      e.preventDefault(); e.stopPropagation();
+    });
+    r.addEventListener("click", (e) => { if (!e.target.closest("button, input")) e.stopPropagation(); });   // soltarlo no cierra nada
+  }
+  document.querySelectorAll(".repro-loc").forEach(arrastrable);
   const rlPopPropio = () => !!(popAbierto && popAbierto._rl && voz.src && voz.src.endsWith("/" + popAbierto._clave));
   function pintarRLPop() {
     const p = popAbierto, r = p && p._rl; if (!r) return;
@@ -554,7 +717,7 @@
     const v = (C.videos || {})[box.dataset.video] || {};
     box.dataset.listo = "1";
     box.innerHTML = `<video playsinline preload="metadata"></video>
-      <div class="vp-portada"><span class="vp-play">${ico.play}</span><b>${v.titulo || box.dataset.titulo || "Video"}</b>${v.fuente ? `<small>${v.fuente}</small>` : ""}</div>
+      <div class="vp-portada"><span class="vp-play">${ico.play}</span><span class="vp-txt"><b>${v.titulo || box.dataset.titulo || "Video"}</b>${v.fuente ? `<small>${v.fuente}</small>` : ""}</span></div>
       <div class="vp-controles">
         <button class="vp-pp" aria-label="Reproducir o pausar">${ico.play}${ico.pausa}</button>
         <button class="vp-atras" aria-label="Retroceder 10 segundos">${ico.atras}</button>
@@ -944,6 +1107,7 @@
   const yaVistoAlEntrar = new Set();
   const saltarRepeticion = (n) => cfg.recordar && yaVistoAlEntrar.has(n);
   let inicioSonado = false;
+  let tFocoSlide = null;
   function irA(n, conSonido = true) {
     n = Math.max(0, Math.min(total - 1, n));
     if (n === actual) return;
@@ -978,8 +1142,29 @@
       if (s.dataset.sonido) { sonar(s.dataset.sonido); espera = 1400; if (s.dataset.sonido === "inicio") inicioSonado = true; }
       else sonar("cambio");
     }
-    if (!saltarRepeticion(n) && (conSonido || n !== 0)) { hablar(rutaLoc(n + 1, "titulo.mp3"), espera); genAuto = genSlide === n && cfg.locuciones && !silencio; }
+    if (!saltarRepeticion(n) && (conSonido || n !== 0)) {
+      if (s.dataset.general === "titulo") {   // v17: la locución del slide de actividad suena en su propio reproductor
+        if (cfg.locuciones && L.activas !== false && !silencio) tGen = setTimeout(() => { if (actual === n) tocarGeneral(); }, espera);
+      } else { hablar(rutaLoc(n + 1, "titulo.mp3"), espera); genAuto = genSlide === n && cfg.locuciones && !silencio; }
+    }
     try { history.replaceState(null, "", "#" + (n + 1)); } catch (e) {}
+    // v20 · al cambiar de slide (Siguiente, Anterior, menú, tabla de contenido, Continuar…) el foco pasa al primer elemento del
+    // slide que se carga; si el slide no tiene interactivos, al slide mismo (el siguiente Tab va a Siguiente). Así el foco no se
+    // queda en la barra: la barra llega solo después de recorrer todo el slide.
+    // (el slide tarda un momento en mostrarse: se reintenta hasta que su primer interactivo acepta el foco, ~1,5 s máximo)
+    clearTimeout(tFocoSlide);
+    let intentos = 0;
+    const enfocarSlide = () => {
+      if (actual !== n || popAbierto || repro.classList.contains("menu-abierto")) return;
+      const a = document.activeElement;
+      if (a && a.closest && ((a.closest(".panel-flot") && !a.closest("[hidden]")) || (a !== s && s.contains(a)))) return;   // ya está adentro
+      const prim = ordenSlide(s)[0];
+      if (prim) { prim.focus({ preventScroll: true, focusVisible: teclado }); if (document.activeElement === prim) return; }
+      if (++intentos < (prim ? 25 : 12)) { tFocoSlide = setTimeout(enfocarSlide, 60); return; }   // sin interactivos: ~0,7 s
+      if (!s.hasAttribute("tabindex")) s.tabIndex = -1;
+      s.focus({ preventScroll: true });
+    };
+    tFocoSlide = setTimeout(enfocarSlide, 60);
   }
   $("btnPrev").addEventListener("click", () => irA(actual - 1));
   $("btnNext").addEventListener("click", () => irA(actual + 1));
@@ -989,7 +1174,7 @@
     if (visor.classList.contains("abierto")) { if (e.key === "Escape") cerrarVisor(); return; }
     if (popAbierto) { if (e.key === "Escape") cerrarPop(); return; }
     if (e.key === "Escape") { if (!$("panelConfig").hidden || !$("panelPend").hidden) { const b = !$("panelConfig").hidden ? $("btnConfig") : $("pct"); cerrarPaneles(); b.focus({ preventScroll: true }); return; } if (repro.classList.contains("menu-abierto")) { abrirMenu(false); return; } }
-    if (e.target.closest && e.target.closest(".menu-lateral, .panel-flot, input, .vbox, .repro-loc")) return;
+    if (e.target.closest && e.target.closest(".menu-lateral, .panel-flot, input")) return;   // v20: con el foco en un botón del slide (reproductor, video) las flechas siguen cambiando de slide; en una barra (input) la mueven
     if (e.key === "ArrowRight" || e.key === "PageDown") irA(actual + 1);
     if (e.key === "ArrowLeft" || e.key === "PageUp") irA(actual - 1);
   });

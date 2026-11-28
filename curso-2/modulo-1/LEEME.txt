@@ -9,7 +9,7 @@ CÓMO ABRIRLO
 - Con doble clic en index.html también funciona; el PDF se abre con el visor nativo del navegador.
 
 ESTRUCTURA
-  index.html                    Las 34 pantallas (el diseño de ppt-design reproducido en un escenario 1920×1080)
+  index.html                    Las 33 pantallas (el diseño de ppt-design reproducido en un escenario 1920×1080)
   css/estilos.css               Animaciones, estados, popups, barra inferior, menú y paneles
   js/config.js                  ← AQUÍ se cambian sonidos, videos, documentos e imágenes
   js/app.js                     Navegación, sonidos, locuciones, progreso, popups, tarjetas, preguntas, videos y visor PDF
@@ -18,7 +18,7 @@ ESTRUCTURA
   assets/audio/                 inicio.mp3 · fin.mp3 · cambio-slide.mp3 · popup.mp3 · correcto.mp3 · incorrecto.mp3
   assets/audio/locuciones/      Una carpeta por pantalla (slide-XX) con titulo.mp3 y popup-<id>.mp3 · GUION.txt
   videos/slide-XX/              Una carpeta por pantalla con video. Coloca ahí video.mp4 (ver el LEEME de cada carpeta)
-  documentos/                   PDF del módulo (Formulario F-TA-28 de registro de plantaciones, como material de apoyo)
+  documentos/                   PDF del Formulario F-TA-28 (sin botón en la barra: este módulo no lleva material de apoyo)
   assets/fonts/                 Work Sans (incluida, funciona sin internet)
   assets/lib/                   pdf.js (visor PDF)
 
@@ -80,7 +80,7 @@ VIDEOS
   Cada uno busca videos/slide-XX/video.mp4. Mientras no esté el archivo, muestra "Video pendiente de cargar".
 
 DOCUMENTOS
-  Formulario F-TA-28 (registro de plantaciones forestales): botón "Material de apoyo" de la barra inferior.
+  Formulario F-TA-28 (registro de plantaciones forestales): ya no va en la barra (2026-11-28).
 
 AVANCE
   El porcentaje cuenta pantallas visitadas, pestañas, popups, tarjetas, ítems, videos, documentos y actividades.

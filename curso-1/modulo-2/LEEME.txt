@@ -9,7 +9,7 @@ CÓMO ABRIRLO
 - Con doble clic en index.html también funciona; el PDF se abre con el visor nativo del navegador.
 
 ESTRUCTURA
-  index.html                    Las 34 pantallas (el diseño de ppt-design reproducido en un escenario 1920×1080)
+  index.html                    Las 33 pantallas (el diseño de ppt-design reproducido en un escenario 1920×1080)
   css/estilos.css               Animaciones, estados, popups, barra inferior, menú y paneles
   js/config.js                  ← AQUÍ se cambian sonidos, videos, documentos e imágenes
   js/app.js                     Navegación, sonidos, locuciones, progreso, popups, preguntas, relaciona, completa la frase, videos
@@ -40,7 +40,7 @@ INTERACCIONES
   Pantallas 7, 8 y 9 · Líneas de tiempo: cada recuadro abre la nota de su año (8 = c10, armada con el diseño de d10).
   Pantalla 10 · Cada recurso con nota abre su popup (la manito va a la derecha de cada rótulo).
   Pantalla 11 · Cada botón descubre el texto que tiene al frente (filas parejas, cada texto centrado frente a su botón);
-               "Ver más" (arriba del logo del ICA) abre la nota del registro ante el ICA.
+               "Ver más" (abajo a la derecha, debajo del último texto) abre la nota del registro ante el ICA.
   Pantallas 12, 13, 14 y 28 · Preguntas: opciones en azul neutro; acierto → "Muy bien." y Continuar; error → Reintentar.
   Pantallas 15, 16, 23, 25 y 26 · "Ver más" con las notas de ppt-contenidos.
   Pantalla 17 · Los tres "+" abren las definiciones (productos maderables, transformación primaria y secundaria).
@@ -62,3 +62,6 @@ SONIDOS · AVANCE · NAVEGACIÓN
 
 DIFERENCIAS CON EL DISEÑO Y PENDIENTES
   Ver DISCREPANCIAS.md y PENDIENTES.md en generador-multimedia-bid\cursos\curso1\modulo2.
+
+  Motor v17 (2026-11-28): las líneas de tiempo (pantallas 7, 8 y 9) se recorren con Tab en orden cronológico; las actividades
+  (pantallas 12, 13, 14, 19, 28, 29 y 30) tienen reproductor para la locución del enunciado (arriba a la derecha).

@@ -501,18 +501,18 @@
   "slide-13/general.mp3": {
    "texto": "A lo anterior se suma un fuerte componente cultural y social. En distintas regiones del país, la guadua hace parte de la identidad territorial, de los conocimientos tradicionales y de prácticas constructivas transmitidas entre generaciones, especialmente en el paisaje cultural cafetero, donde ha contribuido históricamente a la configuración de viviendas y espacios rurales. \nEsto se reconoce explícitamente en el Artículo 12. Identidad cultural para el uso y manejo de la guadua y el bambú, de la Ley 2206 de 2022. Este artículo indica que, con el fin de crear conciencia educativa y cultural, se impulsarán los valores ambientales y productivos del paisaje rural y urbano colombiano, paisaje cultural cafetero de Colombia, al igual que de otras zonas donde se incentive el uso de la guadua y el bambú; de tal forma que se recuperen los saberes tradicionales, el conocimiento sobre su manejo y uso en la arquitectura rural y urbana, y en la prestación de servicios ecosistémicos. Contenidos que se deberán promover en las líneas educativas de los planes de desarrollo y en los diferentes niveles educativos.",
    "hash": "7ef321e4089c",
-   "locutado": "A lo anterior se suma un fuerte componente cultural y social. En distintas regiones del país, la guadua hace parte de la identidad territorial, de los conocimientos tradicionales y de prácticas constructivas transmitidas entre generaciones, especialmente en el paisaje cultural cafetero, donde ha contribuido históricamente a la configuración de viviendas y espacios rurales. \nEsto se reconoce explícitamente en el Artículo 12. Identidad cultural para el uso y manejo de la guadua y el bambú, de la Ley 2206 de 2022. Este artículo indica que, con el fin de crear conciencia educativa y cultural, se impulsarán los valores ambientales y productivos del paisaje rural y urbano colombiano, paisaje cultural cafetero de Colombia, al igual que de otras zonas donde se incentive el uso de la guadua y el bambú; de tal forma que se recuperen los saberes tradicionales, el conocimiento sobre su manejo y uso en la arquitectura rural y urbana, y en la prestación de servicios ecosistémicos. Contenidos que se deberán promover en las líneas educativas de los planes de desarrollo y en los diferentes niveles educativos.",
+   "locutado": "A lo anterior se suma un fuerte componente cultural y social. En distintas regiones del país, la guadua hace parte de la identidad territorial, de los conocimientos tradicionales y de prácticas constructivas transmitidas entre generaciones, especialmente en el paisaje cultural cafetero, donde ha contribuido históricamente a la configuración de viviendas y espacios rurales. \nEsto se reconoce explícitamente en el Artículo 12. Identidad cultural para el uso y manejo de la guadua y el bambú, de la Ley veintidós cero seis de dos mil veintidós. Este artículo indica que, con el fin de crear conciencia educativa y cultural, se impulsarán los valores ambientales y productivos del paisaje rural y urbano colombiano, paisaje cultural cafetero de Colombia, al igual que de otras zonas donde se incentive el uso de la guadua y el bambú; de tal forma que se recuperen los saberes tradicionales, el conocimiento sobre su manejo y uso en la arquitectura rural y urbana, y en la prestación de servicios ecosistémicos. Contenidos que se deberán promover en las líneas educativas de los planes de desarrollo y en los diferentes niveles educativos.",
    "voz": "laura_argel",
    "voice_id": "tNqQ89xlclSJUUJV4U9y",
    "modelo": "eleven_v4",
-   "generacion": "7jqngzQt9YmElQPxbbmu",
-   "fecha": "2026-11-20",
-   "duracion": 75.0,
-   "sha1": "8aee1dce4ece787d057c09742fbb300ae0e76186",
    "origen": "generar",
-   "sesion_el": "TMUFlhrjF8yF7a0QlzLp",
+   "sesion_el": "4bjZ1PWfSjOOIZxl3wgq",
+   "generacion": "aFmFM5DX0MtWy0q1pv8M",
    "flow_id": "dWCWYQb7A59QDx08YKvc",
-   "sesion_bid": "20261120-2232"
+   "sesion_bid": "20261128-1217",
+   "fecha": "2026-11-28",
+   "duracion": 72.99,
+   "sha1": "c518f3a397c8f26c91124ee52e9080369b36a85b"
   },
   "slide-13/popup-r-1.mp3": {
    "texto": "Identidad cultural.",
@@ -1075,20 +1075,20 @@
    "sesion_bid": "20261120-2232"
   },
   "slide-23/titulo.mp3": {
-   "texto": "Subsección 4: sistemas productivos y de restauración sostenible",
-   "hash": "d44cf6a28752",
-   "locutado": "Subsección 4: sistemas productivos y de restauración sostenible.",
+   "texto": "Subsección 4: implementación de sistemas productivos y de restauración sostenible con especies de guadua y bambú en contextos locales",
+   "hash": "1f8dd419053e",
+   "locutado": "Subsección 4: implementación de sistemas productivos y de restauración sostenible con especies de guadua y bambú en contextos locales.",
    "voz": "laura_argel",
    "voice_id": "tNqQ89xlclSJUUJV4U9y",
    "modelo": "eleven_v4",
-   "generacion": "CdOywAGRwFtCPNmqy3pi",
-   "fecha": "2026-11-20",
-   "duracion": 4.99,
-   "sha1": "076ab9eeef03e8c4a098d74a70ec3a211617152b",
    "origen": "generar",
-   "sesion_el": "THC9sSYmyiz6fm4N3owV",
+   "sesion_el": "N4U84o5JFhgGYAE0EmBk",
+   "generacion": "PPwXApY0G7rGUwk5WA50",
    "flow_id": "dWCWYQb7A59QDx08YKvc",
-   "sesion_bid": "20261120-2232"
+   "sesion_bid": "20261128-0225",
+   "fecha": "2026-11-28",
+   "duracion": 9.48,
+   "sha1": "00e3e2f4274116e30d6800efca679a44b5a254b9"
   },
   "slide-24/general.mp3": {
    "texto": "La implementación de especies de guadua y bambú en contextos locales puede realizarse de múltiples maneras, dependiendo de las características biofísicas del territorio, las necesidades de las comunidades y los objetivos de manejo que se busquen alcanzar. Más que modelos únicos, se trata de soluciones flexibles capaces de integrar producción, restauración y sostenibilidad.",
@@ -1139,20 +1139,39 @@
    "sesion_bid": "20261120-2232"
   },
   "slide-26/general.mp3": {
-   "texto": "Un sistema agroforestal, donde cultivos agrícolas como café, cacao, plátano u otras especies pueden integrarse con bambú o guadua. \nEstos arreglos permiten diversificar la producción, mejorar las condiciones microclimáticas del sistema, favorecer la conservación del suelo y generar oportunidades futuras de aprovechamiento de productos derivados del bambú. Además, aumentan la resiliencia productiva frente a variaciones climáticas y económicas.",
-   "hash": "ee426d3e4464",
-   "locutado": "Un sistema agroforestal, donde cultivos agrícolas como café, cacao, plátano u otras especies pueden integrarse con bambú o guadua. \nEstos arreglos permiten diversificar la producción, mejorar las condiciones microclimáticas del sistema, favorecer la conservación del suelo y generar oportunidades futuras de aprovechamiento de productos derivados del bambú. Además, aumentan la resiliencia productiva frente a variaciones climáticas y económicas.",
+   "texto": "Un sistema agroforestal, donde cultivos agrícolas como café, cacao, plátano u otras especies pueden integrarse con bambú o guadua. \nEstos arreglos permiten diversificar la producción, mejorar las condiciones microclimáticas del sistema, favorecer la conservación del suelo y generar oportunidades futuras de aprovechamiento de productos derivados del bambú. Además, aumentan la resiliencia productiva frente a variaciones climáticas y económicas.\nFinalmente, hacia la parte derecha observamos un sistema multipropósito comunitario, en el cual la guadua y el bambú se articulan con viveros, procesos de transformación artesanal y usos locales del material vegetal. Este tipo de iniciativas puede fortalecer capacidades comunitarias, promover el uso sostenible de la biodiversidad y generar alternativas económicas vinculadas a la construcción, artesanías, restauración ecológica y producción local.\nEn conjunto, estos ejemplos muestran que la implementación de sistemas con guadua y bambú no responde a un modelo estandarizado. Su éxito depende de reconocer las condiciones ecológicas del territorio, los conocimientos locales y las necesidades de quienes habitan el paisaje.",
+   "hash": "306651e5bbc0",
+   "locutado": "Un sistema agroforestal, donde cultivos agrícolas como café, cacao, plátano u otras especies pueden integrarse con bambú o guadua. \nEstos arreglos permiten diversificar la producción, mejorar las condiciones microclimáticas del sistema, favorecer la conservación del suelo y generar oportunidades futuras de aprovechamiento de productos derivados del bambú. Además, aumentan la resiliencia productiva frente a variaciones climáticas y económicas.\nFinalmente, hacia la parte derecha observamos un sistema multipropósito comunitario, en el cual la guadua y el bambú se articulan con viveros, procesos de transformación artesanal y usos locales del material vegetal. Este tipo de iniciativas puede fortalecer capacidades comunitarias, promover el uso sostenible de la biodiversidad y generar alternativas económicas vinculadas a la construcción, artesanías, restauración ecológica y producción local.\nEn conjunto, estos ejemplos muestran que la implementación de sistemas con guadua y bambú no responde a un modelo estandarizado. Su éxito depende de reconocer las condiciones ecológicas del territorio, los conocimientos locales y las necesidades de quienes habitan el paisaje.",
    "voz": "laura_argel",
    "voice_id": "tNqQ89xlclSJUUJV4U9y",
    "modelo": "eleven_v4",
-   "generacion": "6iEBuDOPQSNh23OjYHms",
-   "fecha": "2026-11-20",
-   "duracion": 30.43,
-   "sha1": "351f256cec367e3b6753e4c2b19172b694239f0a",
-   "origen": "generar",
-   "sesion_el": "Sb6HKcJFYj2ruTZbY0GV",
+   "origen": "generar (unión)",
+   "sesion_el": "SxLyq28lX6g7iURver9B",
+   "generacion": "arQ6wnReIDKfG5ae1JrW",
    "flow_id": "dWCWYQb7A59QDx08YKvc",
-   "sesion_bid": "20261120-2232"
+   "sesion_bid": "20261128-0225",
+   "fecha": "2026-11-28",
+   "duracion": 80.17,
+   "sha1": "d08c674f01971231eb8c86f72f2d997d077e857f",
+   "partes": [
+    {
+     "desde": "Un sistema agroforestal…",
+     "hasta": "…variaciones climáticas y económicas.",
+     "generacion": "6iEBuDOPQSNh23OjYHms",
+     "sesion_el": "Sb6HKcJFYj2ruTZbY0GV",
+     "fecha": "2026-11-20",
+     "duracion": 30.43
+    },
+    {
+     "desde": "Finalmente, hacia la parte derecha…",
+     "hasta": "…habitan el paisaje.",
+     "generacion": "arQ6wnReIDKfG5ae1JrW",
+     "sesion_el": "SxLyq28lX6g7iURver9B",
+     "fecha": "2026-11-28",
+     "duracion": 49.32
+    }
+   ],
+   "nota": "Un solo audio: la parte grabada el 2026-11-20 + 0,45 s de pausa + la parte faltante generada el 2026-11-28 (pedido de Jhonnatan)."
   },
   "slide-26/titulo.mp3": {
    "texto": "Sistemas productivos: sistemas agroforestales",
@@ -1444,5 +1463,5 @@
   }
  },
  "flow_id": "dWCWYQb7A59QDx08YKvc",
- "actualizado": "2026-11-20 22:51"
+ "actualizado": "2026-11-28 12:21"
 }

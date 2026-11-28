@@ -1,5 +1,5 @@
 GUION DE LOCUCIONES · Curso 2 · Módulo 1 (proyecto BID)
-Audios reales: 90 de 90 (detalle en registro-locuciones.json; los demás tienen el audio provisional).
+Audios reales: 89 de 89 (detalle en registro-locuciones.json; los demás tienen el audio provisional).
 Se generan con la skill generar-locuciones-bid (voz laura_argel). titulo.mp3 = título del slide; general.mp3 = locución general
 (suena después del título, con su reproductor en el slide); popup-*.mp3 = cada elemento interactivo.
 Los subtítulos (CC) se generan con el texto de este guion y se reparten según la duración del audio.
@@ -116,4 +116,3 @@ slide-30/titulo.mp3  →  Conclusiones
 slide-31/titulo.mp3  →  Bibliografía.
 slide-32/titulo.mp3  →  Bibliografía.
 slide-33/titulo.mp3  →  ¡Felicitaciones! Finalizaste los contenidos del Módulo 1 con éxito.
-slide-34/titulo.mp3  →  Introducción a los ecosistemas de guadua y bambú.

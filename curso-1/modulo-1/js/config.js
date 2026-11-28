@@ -179,8 +179,7 @@ window.CONFIG = {
     "slide-29/titulo.mp3": "Bibliografía.",
     "slide-30/titulo.mp3": "Bibliografía.",
     "slide-31/titulo.mp3": "Bibliografía. Videos finales.",
-    "slide-32/titulo.mp3": "¡Felicitaciones!",
-    "slide-33/titulo.mp3": "Introducción a la compra y consumo responsable de productos forestales maderables."
+    "slide-32/titulo.mp3": "¡Felicitaciones!"
   },
   "subtitulos": {
     "slide-01/titulo.mp3": {
@@ -838,7 +837,7 @@ window.CONFIG = {
       "c": [
         [
           0.0,
-          0.62,
+          0.63,
           "Pilote."
         ]
       ]
@@ -1248,6 +1247,16 @@ window.CONFIG = {
         ]
       ]
     },
+    "slide-25/popup-e-1.mp3": {
+      "d": 2.12,
+      "c": [
+        [
+          0.0,
+          1.91,
+          "Promueve la cadena de valor"
+        ]
+      ]
+    },
     "slide-25/popup-e-2.mp3": {
       "d": 2.27,
       "c": [
@@ -1325,6 +1334,46 @@ window.CONFIG = {
           13.17,
           19.96,
           "Es primordial implementar políticas de compra responsable que apoyen un cambio hacia prácticas sostenibles."
+        ]
+      ]
+    },
+    "slide-26/popup-e-3.mp3": {
+      "d": 42.19,
+      "c": [
+        [
+          0.0,
+          8.09,
+          "Como comprador y consumidor debes: informarte del origen del producto que consumes y el impacto que genera su"
+        ],
+        [
+          8.1,
+          14.97,
+          "obtención; cuestionar tu necesidad de consumo y aplicar el pensamiento de reducir, reutilizar, reusar,"
+        ],
+        [
+          14.98,
+          22.779999999999998,
+          "reciclar; y elegir la opción que genere menor impacto negativo, mayor confiabilidad y beneficio social,"
+        ],
+        [
+          22.79,
+          27.72,
+          "priorizando productos forestales cuyo origen legal esté garantizado."
+        ],
+        [
+          27.73,
+          32.440000000000005,
+          "Para ello puedes utilizar herramientas como la certificación forestal voluntaria,"
+        ],
+        [
+          32.45,
+          35.52,
+          "el reconocimiento a la procedencia legal,"
+        ],
+        [
+          35.47,
+          41.99,
+          "y el catálogo de productos en elijamaderalegal.com sobre los que profundizaremos en el siguiente módulo."
         ]
       ]
     },
@@ -1460,16 +1509,6 @@ window.CONFIG = {
           0.0,
           1.49,
           "¡Felicitaciones!"
-        ]
-      ]
-    },
-    "slide-33/titulo.mp3": {
-      "d": 5.25,
-      "c": [
-        [
-          0.0,
-          5.25,
-          "Introducción a la compra y consumo responsable de productos forestales maderables."
         ]
       ]
     }
